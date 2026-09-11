@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prepare Desktop 0.8.0-beta.1 — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/DESKTOP-SUITE.html"><meta name="description" content="Prepare Desktop 0.8.0-beta.1: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="Prepare Desktop 0.8.0-beta.1 — Prepare docs"><meta property="og:description" content="Prepare Desktop 0.8.0-beta.1: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/DESKTOP-SUITE.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Prepare Desktop 0.8.0-beta.1 — Prepare docs"><meta name="twitter:description" content="Prepare Desktop 0.8.0-beta.1: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Prepare Desktop 0.8.0-beta.1</h1>
+<p>A larger, offline desktop suite alongside the tiny image app and browser tools.
+Native Tk controls, a separate process for conversion/rendering, no HTTP server,
+no accounts, no uploads, and no runtime downloads. Original files are never
+replaced. Save into local folders: OS file providers can sync independently.</p>
+<h2>Start</h2>
+<p>Extract the complete archive before launching Prepare-Desktop (Windows:
+Prepare-Desktop.exe). Keep the _internal directory beside the executable.
+Linux: mark Prepare-Desktop executable if your extractor lost permissions, then
+run it on a desktop with X11/XWayland. macOS: this beta is not notarized. Do not
+disable Gatekeeper; inspect/build the source if policy blocks the download.
+Windows builds are unsigned and may trigger reputation warnings.</p>
+<p>Source: Python 3.12+ with Tk, <code>pip install -r desktop/requirements.txt</code>, then
+<code>python desktop/launch.py</code>. Development packaging also needs PyInstaller 6.22.2.
+Dependencies are separately licensed; see bundled licenses. Prepare core uses
+Hippocratic License 3.0 and is ethical-source, not OSI-approved open source.</p>
+<h2>Use</h2>
+<p>Choose a local file, choose a target in the dropdown, select options and export
+a NEW filename. Preview source/output PDFs or images with the page/frame control.
+PDF page selection is comma-separated, 1-based; rotation is added clockwise.
+Inspect PDF shows form field names; fill values are a JSON object. Passwords
+travel to the worker over stdin, not process arguments or saved preferences.</p>
+<p>The format registry lists plausible conversions; malformed/unsupported variants
+are rejected. It does NOT claim every extension can become every other format.</p>
+<ul>
+<li>Any extension: lossless ZIP or GZ archive compression. This wraps bytes; it is
+  not semantic conversion. Already compressed files can grow. No extraction UI.</li>
+<li>Images: PNG, JPEG, WebP, TIFF, BMP, GIF, ICO, PPM/PGM/PBM/PNM, PCX, TGA, DDS,
+  ICNS, JPEG2000 and AVIF through bundled Pillow codecs. Targets: PNG, JPEG,
+  WebP, TIFF, BMP, GIF, ICO, PPM or image PDF. One chosen frame only; animation,
+  metadata, profiles and transparency may be lost. Not camera RAW/PSD/SVG support.</li>
+<li>UTF-8 text/Markdown/CSV/TSV/JSON/XML/HTML/log/YAML/INI/TOML/RST: TXT, MD, safe
+  escaped HTML, DOCX or PDF. Text-first, not a layout-preserving Office engine.</li>
+<li>DOCX/ODT/PPTX/ODP/XLSX/ODS/EPUB: bounded text extraction to those same targets.
+  Images/layout/macros are discarded. Spreadsheet extraction is NOT cell-faithful
+  conversion; formulas/styles and empty-cell positions are not reconstructed. Cached values and shared strings are extracted.</li>
+<li>Audio/video: with separately installed local FFmpeg on PATH, WAV, FLAC, MP3,
+  OGG/Opus, AIFF, AAC, M4A, MP4, MOV, MKV, WebM and AVI to supported audio/video
+  outputs. Codec availability depends on FFmpeg. Pipe-only inputs deliberately
+  reject files requiring seek access. Playlists and network protocols disabled.</li>
+<li>PDF: local visual preview, page operations, text/image export, lossless stream
+  optimization, explicitly lossy rasterization, password handling, form filling,
+  annotations and OCR. Ordinary AcroForm widgets are rendered without JavaScript
+  or document action callbacks; XFA visual rendering is rejected. Previews identify
+  the filename, page and input SHA-256 and clear after export.</li>
+</ul>
+<p>OCR requires separately installed Tesseract and its language data. Media requires
+separately installed FFmpeg. Prepare detects but never installs or downloads them.
+These are real local engines, not cloud fallbacks. All other listed conversions
+are bundled. Additional engines retain their own licenses.</p>
+<h2>Boundaries</h2>
+<p>100 MiB input/output, 100 PDF pages, 20 million pixels per image, 2 MB text,
+20 MB expanded Office XML, 180-second worker deadline. Some library allocations
+are not fully contained on macOS/Windows. Process isolation is not an OS security
+sandbox. Don't use this beta as a hostile-file sanitizer. Copying PDFs may retain
+active content; no operation guarantees removal of all threats. OCR is fallible;
+review text. Rasterization destroys original text, signatures and interactivity.
+No arbitrary PDF content editor, general annotation editor or signature authority.
+No compression size guarantee. Originals remain the authoritative fallback.</p>
+<p>Exports use atomic exclusive hard-link publication, requiring a local filesystem
+that supports hard links (e.g. NTFS/APFS/ext4). FAT/exFAT destinations may fail;
+save locally and copy the result manually. Cancellation can race with completed
+publication; the UI tells you to check for a newly created copy. Worker temporary
+files may remain after forced cancellation; they are local, not uploaded.</p>
+<p>Mobile store distribution and Apple notarization are not provided by this beta.
+The existing Android developer experiment and browser packages remain separate.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>
