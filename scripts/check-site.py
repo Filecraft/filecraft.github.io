@@ -30,7 +30,7 @@ for f in files:
         elif parts.fragment:assert parts.fragment in p.ids,(f,u)
         count+=1
 text=(ROOT/'index.html').read_text()
-assert '/v0.5.0/Filecraft-0.5.0-arm64.zip' in text
-assert '/v0.5.0/Filecraft-0.5.0-portable.zip' in text
+assert '/releases/' in text
+assert '/releases/download/' in text
 assert 'https://filecraft.github.io/Filecraft/' not in text
-print('PASS',len(files),'pages,',count,'local references, canonical URLs and both release downloads')
+print('PASS',len(files),'pages,',count,'local references, canonical URLs and current release downloads')
