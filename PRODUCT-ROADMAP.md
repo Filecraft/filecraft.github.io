@@ -1,5 +1,8 @@
 # From documents to readiness
 
+> Historical architecture/planning context. For current capabilities use the desktop, extension and workflow guides; this document is not a current platform-support promise.
+
+
 This is a staged product program, not a promise that all capabilities exist.
 The detailed 100-entry backlog remains in ROADMAP-100.md; stages below organize
 future investment by dependencies and evidence, not an arbitrary feature count.

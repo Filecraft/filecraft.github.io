@@ -1,0 +1,50 @@
+[
+  {
+    "label": "Windows desktop suite",
+    "platform": "windows",
+    "version": "0.8.0-beta.1",
+    "channel": "Historical beta",
+    "architecture": "x64",
+    "bytes": 32642312,
+    "sha256": "9355245a679111481099325b903b8f5a0d9fdabfd62c790c1798a338a9a28c20",
+    "license": "Hippocratic-3.0",
+    "url": "https://github.com/gonisulaimann/Prepare/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-windows-amd64.zip",
+    "notes": "Published prior suite. No 0.9 requirement gates or receipts. Unsigned / not notarized. Keep the extracted directory together."
+  },
+  {
+    "label": "macOS desktop suite",
+    "platform": "mac",
+    "version": "0.8.0-beta.1",
+    "channel": "Historical beta",
+    "architecture": "x64",
+    "bytes": 29856556,
+    "sha256": "a03208f4f03c5e6abb3ea0c216577604a3e5f87d1742c8387d50105106724a3b",
+    "license": "Hippocratic-3.0",
+    "url": "https://github.com/gonisulaimann/Prepare/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-darwin-x86_64.zip",
+    "notes": "Published prior suite. No 0.9 requirement gates or receipts. Unsigned / not notarized. Keep the extracted directory together."
+  },
+  {
+    "label": "macOS desktop suite",
+    "platform": "mac",
+    "version": "0.8.0-beta.1",
+    "channel": "Historical beta",
+    "architecture": "ARM64",
+    "bytes": 28440126,
+    "sha256": "d0a6605fb787e3866d6db267a7676a9c53f53bd4433a24e10d21043f0b0a15f3",
+    "license": "Hippocratic-3.0",
+    "url": "https://github.com/gonisulaimann/Prepare/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-darwin-arm64.zip",
+    "notes": "Published prior suite. No 0.9 requirement gates or receipts. Unsigned / not notarized. Keep the extracted directory together."
+  },
+  {
+    "label": "Linux desktop suite",
+    "platform": "linux",
+    "version": "0.8.0-beta.1",
+    "channel": "Historical beta",
+    "architecture": "x64",
+    "bytes": 50435866,
+    "sha256": "57cd115daa05b2b9bc1dd313dd722c0e173a486bcb908187d9a53d99ad1c3943",
+    "license": "Hippocratic-3.0",
+    "url": "https://github.com/gonisulaimann/Prepare/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-linux-x86_64.zip",
+    "notes": "Published prior suite. No 0.9 requirement gates or receipts. Unsigned / not notarized. Keep the extracted directory together."
+  }
+]

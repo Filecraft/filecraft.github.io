@@ -1,5 +1,8 @@
 # Shared document engine and source CLI
 
+> Historical architecture/planning context. For current capabilities use the desktop, extension and workflow guides; this document is not a current platform-support promise.
+
+
 Local-only, dependency-free JavaScript. The shared file is CommonJS in Node and a browser UMD global named `DocumentEngine`. It performs no network requests, pixel decoding, file rendering, or institutional verification. Repository licensing remains unchanged; see the root `LICENSE` (also included in source bundles).
 
 ## Run

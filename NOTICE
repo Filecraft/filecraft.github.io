@@ -1,13 +1,8 @@
-Prepare
+Prepare website and original artwork
 Copyright (c) 2026 Goni Sulaiman and Prepare contributors.
 
-Licensed under the Hippocratic License 3.0, core configuration, with no
-optional modules. The complete license is in LICENSE.
-Canonical text: https://firstdonoharm.dev/version/3/0/core.txt
-License author: Coraline Ada Ehmke / Organization for Ethical Source.
-
-This is ethical-source, source-available software. The Hippocratic License
-restricts harmful uses and is not an OSI-approved open-source license.
-
-The application and its original artwork use only Apple system frameworks;
-no third-party code is bundled. Apple framework rights remain with Apple.
+Current original site source is Apache-2.0; see LICENSE. Historical site commits
+retain their original terms. This is a prospective owner-authorized transition.
+The embedded workspace contains upstream pdf-lib and constituent dependencies;
+retain workspace/NOTICE and workspace/vendor/LICENSE* for their attribution.
+Historical application downloads retain the licenses in their own archives.

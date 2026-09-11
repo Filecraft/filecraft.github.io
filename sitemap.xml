@@ -79,6 +79,9 @@
     <loc>https://gonisulaimann.github.io/changelog/</loc>
   </url>
   <url>
+    <loc>https://gonisulaimann.github.io/cli/</loc>
+  </url>
+  <url>
     <loc>https://gonisulaimann.github.io/community/</loc>
   </url>
   <url>
@@ -88,7 +91,13 @@
     <loc>https://gonisulaimann.github.io/contributing/</loc>
   </url>
   <url>
+    <loc>https://gonisulaimann.github.io/desktop/</loc>
+  </url>
+  <url>
     <loc>https://gonisulaimann.github.io/download/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/extension/</loc>
   </url>
   <url>
     <loc>https://gonisulaimann.github.io/faq/</loc>
@@ -103,13 +112,25 @@
     <loc>https://gonisulaimann.github.io/licensing/</loc>
   </url>
   <url>
+    <loc>https://gonisulaimann.github.io/mobile/</loc>
+  </url>
+  <url>
     <loc>https://gonisulaimann.github.io/platforms/</loc>
   </url>
   <url>
     <loc>https://gonisulaimann.github.io/privacy/</loc>
   </url>
   <url>
+    <loc>https://gonisulaimann.github.io/profiles/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/readiness/</loc>
+  </url>
+  <url>
     <loc>https://gonisulaimann.github.io/releases/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/requirements/</loc>
   </url>
   <url>
     <loc>https://gonisulaimann.github.io/roadmap/</loc>
@@ -118,6 +139,18 @@
     <loc>https://gonisulaimann.github.io/security/</loc>
   </url>
   <url>
+    <loc>https://gonisulaimann.github.io/supported-formats/</loc>
+  </url>
+  <url>
     <loc>https://gonisulaimann.github.io/terms/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/web/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/workflows/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/workspace/</loc>
   </url>
 </urlset>

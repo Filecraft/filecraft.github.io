@@ -1,5 +1,8 @@
 # Architecture
 
+> Historical architecture/planning context. For current capabilities use the desktop, extension and workflow guides; this document is not a current platform-support promise.
+
+
 ## Version 0.5 platform boundaries
 
 Mac uses SwiftUI / PDFKit / CoreGraphics with no package dependencies.

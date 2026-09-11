@@ -1,5 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prepare Desktop 0.8.0-beta.1 — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/DESKTOP-SUITE.html"><meta name="description" content="Prepare Desktop 0.8.0-beta.1: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="Prepare Desktop 0.8.0-beta.1 — Prepare docs"><meta property="og:description" content="Prepare Desktop 0.8.0-beta.1: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/DESKTOP-SUITE.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Prepare Desktop 0.8.0-beta.1 — Prepare docs"><meta name="twitter:description" content="Prepare Desktop 0.8.0-beta.1: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Prepare Desktop 0.8.0-beta.1</h1>
-<p>A larger, offline desktop suite alongside the tiny image app and browser tools.
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prepare Desktop 0.9.0-beta.1 (development) — Prepare</title><meta name="description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><link rel="canonical" href="https://gonisulaimann.github.io/documentation/DESKTOP-SUITE.html"><meta property="og:type" content="website"><meta property="og:title" content="Prepare Desktop 0.9.0-beta.1 (development) — Prepare"><meta property="og:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/DESKTOP-SUITE.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Prepare Desktop 0.9.0-beta.1 (development) — Prepare"><meta name="twitter:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Prepare", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, Linux, macOS; browser workspace", "url": "https://gonisulaimann.github.io/", "license": "https://github.com/gonisulaimann/Prepare/blob/main/LICENSE"}</script><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Prepare home"><span class="brand-mark" aria-hidden="true">P</span>Prepare<span class="brand-note">LOCAL BY DESIGN</span></a><nav aria-label="Primary"><a class="" href="/workflows/">Workflows</a><a class="" href="/download/">Download</a><a class="" href="/documentation/">Documentation</a><a class="nav-action" href="/workspace/">Open workspace ↗</a></nav></header><main id="main" tabindex="-1"><div class="page-intro"><p class="eyebrow">Prepare / Field guide</p><h1>Prepare Desktop 0.9.0-beta.1 (development)</h1><p class="deck">Technical documentation and evidence. Older versioned reports retain their original scope.</p></div><p class="fine">Versioned reports retain historical scope and licenses. Current capabilities and license: <a href="/features/">features</a> · <a href="/licensing/">licensing</a>.</p><article class="technical"><p>A larger, offline desktop suite alongside the tiny image app and browser tools.
 Native Tk controls, a separate process for conversion/rendering, no HTTP server,
 no accounts, no uploads, and no runtime downloads. Original files are never
 replaced. Save into local folders: OS file providers can sync independently.</p>
@@ -10,10 +9,17 @@ Linux: mark Prepare-Desktop executable if your extractor lost permissions, then
 run it on a desktop with X11/XWayland. macOS: this beta is not notarized. Do not
 disable Gatekeeper; inspect/build the source if policy blocks the download.
 Windows builds are unsigned and may trigger reputation warnings.</p>
-<p>Source: Python 3.12+ with Tk, <code>pip install -r desktop/requirements.txt</code>, then
+<p>Source qualification: Python 3.13 with Tk, <code>pip install -r desktop/requirements.txt</code>, then
 <code>python desktop/launch.py</code>. Development packaging also needs PyInstaller 6.22.2.
-Dependencies are separately licensed; see bundled licenses. Prepare core uses
-Hippocratic License 3.0 and is ethical-source, not OSI-approved open source.</p>
+Original Prepare work now uses Apache-2.0; earlier published binaries retain
+their original licenses. Dependencies remain separately licensed; preserve the
+complete bundled <code>licenses/</code> directory, including PREPARE-NOTICE. See
+<a href="https://github.com/gonisulaimann/Prepare/blob/main/docs/LICENSING.md">licensing scope</a> and <a href="DEPENDENCIES.html">dependencies</a>.
+New packages retain Vera fonts and their Bitstream license, exclude unused
+DarkGarden fonts, and collect exact-version OpenSSL notices on every platform.
+Packaging requires network access for upstream legal texts (not at runtime);
+unknown TLS versions or missing texts block publication. This is not a complete
+recursive native-library audit.</p>
 <h2>Use</h2>
 <p>Choose a local file, choose a target in the dropdown, select options and export
 a NEW filename. Preview source/output PDFs or images with the page/frame control.
@@ -48,6 +54,22 @@ are rejected. It does NOT claim every extension can become every other format.</
 separately installed FFmpeg. Prepare detects but never installs or downloads them.
 These are real local engines, not cloud fallbacks. All other listed conversions
 are bundled. Additional engines retain their own licenses.</p>
+<h2>Requirements, receipts and CLI</h2>
+<p>Maximum decimal MB and page limits are optional; blank means no limit. A shared
+version-1 JSON profile may also constrain formats, dimensions, orientation and
+filenames. The output is measured before publication; failed requirements leave
+no output copy. Unknown properties remain NEEDS_REVIEW, never a pass. The receipt
+stores only mechanical checks—not visual/accessibility/full-conformance proof.</p>
+<p>Save receipt after export writes a separate JSON file exclusively. It contains
+hashes, sizes and your chosen rules, not full source paths/passwords. Profile IDs
+and descriptions are user-entered and may themselves contain private details.</p>
+<p>CLI: <code>Prepare-Desktop prepare input.png --target pdf --output prepared.pdf
+--max-bytes 2000000</code> (one command line). <code>--cli</code> before the command is also
+accepted. JSON output includes <code>result.receipt</code>; save that object as receipt.json
+and run <code>Prepare-Desktop verify prepared.pdf --receipt receipt.json</code>. Match returns
+0; mismatch 2; processing error 1. The receipt is unsigned/editable: byte identity
+is not authenticity or institutional acceptance. <code>formats input.png</code> lists actual
+available targets. CLI uses the same bounded separate worker as the UI.</p>
 <h2>Boundaries</h2>
 <p>100 MiB input/output, 100 PDF pages, 20 million pixels per image, 2 MB text,
 20 MB expanded Office XML, 180-second worker deadline. Some library allocations
@@ -63,4 +85,4 @@ save locally and copy the result manually. Cancellation can race with completed
 publication; the UI tells you to check for a newly created copy. Worker temporary
 files may remain after forced cancellation; they are local, not uploaded.</p>
 <p>Mobile store distribution and Apple notarization are not provided by this beta.
-The existing Android developer experiment and browser packages remain separate.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>
+The existing Android developer experiment and browser packages remain separate.</p></article></main><footer class="site-footer"><div><a class="brand" href="/">Prepare</a><p>A copy. A check. A record.<br>No account. No document uploads.</p></div><nav aria-label="Footer"><a class="" href="/privacy/">Privacy</a><a class="" href="/security/">Security</a><a class="" href="/accessibility/">Accessibility</a><a class="" href="/licensing/">License</a><a class="" href="/community/">Community</a><a class="" href="/about/">About</a><a class="" href="/contact/">Contact</a><a class="" href="https://github.com/gonisulaimann/Prepare">GitHub ↗</a><a class="" href="/terms/">Terms</a></nav><p class="fine">Current project-owned source: Apache-2.0. Dependencies retain their licenses.<br>Historical downloads through 0.8 retain Hippocratic 3.0. No license change is implied for old artifacts.</p></footer></body></html>

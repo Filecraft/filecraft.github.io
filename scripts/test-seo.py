@@ -30,13 +30,15 @@ for f in files:
     assert p.meta['og:url']==url
     assert 50<=len(p.meta['description'])<=180,(f,len(p.meta['description']))
     assert all('alt' in a for a in p.images)
-    assert all(a.get('src') in ['site.js','platform.js','/platform.js'] or a.get('type')=='application/ld+json' for a in p.scripts)
+    allowed=['site.js','platform.js','/platform.js']
+    if f.parent.name=='workspace':allowed+=['document-engine.js','readiness-ui.js','worker-bundle.js','app.js']
+    assert all(a.get('src') in allowed or a.get('type')=='application/ld+json' for a in p.scripts)
     if f.name=='index.html' and f.parent==ROOT:
         app=p.schemas[0];assert app['@type']=='SoftwareApplication'
-        assert app['operatingSystem']=='macOS 14 or later (Apple Silicon)'
-        assert app['softwareVersion']=='0.5.0' and app['offers']['price']=='0'
+        assert app['operatingSystem']=='Windows, Linux, macOS; browser workspace'
+        assert 'softwareVersion' not in app  # multiple independently versioned distributions
         assert app['url']==BASE and app['license'].endswith('/LICENSE')
-        assert app['downloadUrl'].endswith('/v0.5.0/Prepare-0.5.0-arm64.zip')
+        assert 'downloadUrl' not in app  # platform choice belongs on the download page
         assert not any(k in app for k in ['aggregateRating','review'])
 robot=(ROOT/'robots.txt').read_text()
 assert 'User-agent: *' in robot and 'Allow: /' in robot

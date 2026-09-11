@@ -1,40 +1,66 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Small design system — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/DESIGN-SYSTEM.html"><meta name="description" content="Small design system: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="Small design system — Prepare docs"><meta property="og:description" content="Small design system: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/DESIGN-SYSTEM.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Small design system — Prepare docs"><meta name="twitter:description" content="Small design system: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Small design system</h1>
-<p>Prepare uses restrained editorial typography and a workbench, not a dashboard.
-The browser products share the same visual vocabulary; native apps retain
-platform controls instead of imitating a website.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prepare visual system — Prepare</title><meta name="description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><link rel="canonical" href="https://gonisulaimann.github.io/documentation/DESIGN-SYSTEM.html"><meta property="og:type" content="website"><meta property="og:title" content="Prepare visual system — Prepare"><meta property="og:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/DESIGN-SYSTEM.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Prepare visual system — Prepare"><meta name="twitter:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Prepare", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, Linux, macOS; browser workspace", "url": "https://gonisulaimann.github.io/", "license": "https://github.com/gonisulaimann/Prepare/blob/main/LICENSE"}</script><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Prepare home"><span class="brand-mark" aria-hidden="true">P</span>Prepare<span class="brand-note">LOCAL BY DESIGN</span></a><nav aria-label="Primary"><a class="" href="/workflows/">Workflows</a><a class="" href="/download/">Download</a><a class="" href="/documentation/">Documentation</a><a class="nav-action" href="/workspace/">Open workspace ↗</a></nav></header><main id="main" tabindex="-1"><div class="page-intro"><p class="eyebrow">Prepare / Field guide</p><h1>Prepare visual system</h1><p class="deck">Technical documentation and evidence. Older versioned reports retain their original scope.</p></div><p class="fine">Versioned reports retain historical scope and licenses. Current capabilities and license: <a href="/features/">features</a> · <a href="/licensing/">licensing</a>.</p><article class="technical"><p>Identity: local preparation, measured evidence, honest unknowns.</p>
 <h2>Tokens</h2>
-<ul>
-<li>Body: system UI, 16px / 1.5; no external fonts.</li>
-<li>Headings: Georgia/system serif, 28px section and 42px product heading.</li>
-<li>Spacing: 6, 8, 12, 16, 20, 24, 32px; borders rather than shadows.</li>
-<li>Dark canvas #0d1916, panel #172823, text #f2f3e9, muted #b3c6b9,
-  accent #c5ee9b, divider #45594f.</li>
-<li>Light colors are defined in the browser stylesheet's light media query.</li>
-<li>Buttons: visible labels, 44px minimum height in the PDF workbench,
-  4px corner radius; do not communicate an action through color alone.</li>
-<li>Focus: 3px accent outline with offset, never suppressed.</li>
-</ul>
-<h2>Layout and interaction</h2>
-<p>A compact left rail holds source inputs and output requirements. The larger
-right area holds pages, reversible actions and output review. Stack these
-at narrow widths without horizontal scrolling. Use real labels, native
-inputs, keyboard-operable buttons and an unobscured skip link. Filename
-strings are text nodes, never HTML. Long names wrap.</p>
-<p>Actions that change pages or requirements invalidate the generated copy.
-Cancel terminates PDF parsing workers. Destructive workspace clearing asks
-for confirmation; original documents are never changed. Import and Clear
-reset history explicitly. Do not imply persisted state where none exists.</p>
-<h2>Validation</h2>
-<p>PASS, FAIL and UNKNOWN are words, not color-only dots. Show actual values,
-expected ranges/units and remediation. Parsing is not visual, accessibility
-or standards certification. Keep uncertainty visible even after byte/page
-checks pass. Report failures in an aria-live status region.</p>
-<h2>Motion and theme</h2>
-<p>No decorative motion or transitions are required. Honor system light/dark
-preferences and reduced motion. Avoid remote assets and runtime theme
-storage. Browser theme and native appearance may differ by platform.</p>
-<h2>Review gates</h2>
-<p>Check populated and empty states, long names, error paths, keyboard focus,
-390/768/1440px widths, light/dark and no-JavaScript explanatory content.
-Processing requires JavaScript; navigation/privacy/download documentation
-must not pretend otherwise. Never replace real verification with screenshots.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Light</th>
+<th>Dark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paper</td>
+<td>#f4f1e8</td>
+<td>#17201d</td>
+</tr>
+<tr>
+<td>Surface</td>
+<td>#fffdf7</td>
+<td>#202d27</td>
+</tr>
+<tr>
+<td>Ink</td>
+<td>#172c26</td>
+<td>#f1eee3</td>
+</tr>
+<tr>
+<td>Secondary text</td>
+<td>#52625c</td>
+<td>#b9c9bf</td>
+</tr>
+<tr>
+<td>Accent</td>
+<td>#174f40</td>
+<td>#bbd9c7</td>
+</tr>
+<tr>
+<td>Rule</td>
+<td>#bbc6be</td>
+<td>#53645a</td>
+</tr>
+</tbody>
+</table>
+<p>System sans-serif for controls and reading; Georgia for editorial headings;
+system monospace for numbered stages, measurements and fingerprints. No network
+fonts. Spacing follows 4/8/12/16/24/32/48/64px steps; fluid page margins. Borders
+organize evidence; they are not decorative card shadows. No gradient identity.</p>
+<p>Website mode: decide and learn. Broad editorial headings and a six-stage process
+introduce the product; the actual workspace is one click away, not a fake demo.
+Workspace mode: operate. Controls stay labeled, document measurements are not
+presented as thumbnails, output state invalidates when its inputs change.
+Desktop mode: native Tk controls respect platform conventions; the same stage
+names and evidence semantics matter more than forcing CSS into native widgets.</p>
+<h2>States and accessibility</h2>
+<p>Use explicit pass/fail/unknown text, never color alone. Unknown is not green.
+No document health percentage or acceptance certification. Visible focus rings,
+keyboard skip links, explicit file-input labels, touch-sized primary controls,
+reduced-motion support and light/dark tests are required. No drag-only action.</p>
+<p>Output ready means available to review—not that review has occurred. Receipts
+are optional JSON evidence, unsigned and editable. Error copy states what failed,
+what was preserved and what can be tried next. Do not promise cancellation can
+undo a copy already published just before interruption.</p>
+<p>Website/documentation share one layout generator; workspace shares the palette
+but gives controls precedence. Preserve no-JS navigation and state clearly that
+actual local processing needs JavaScript. Automated layout tests are not a
+blanket WCAG certification or complete screen-reader qualification.</p></article></main><footer class="site-footer"><div><a class="brand" href="/">Prepare</a><p>A copy. A check. A record.<br>No account. No document uploads.</p></div><nav aria-label="Footer"><a class="" href="/privacy/">Privacy</a><a class="" href="/security/">Security</a><a class="" href="/accessibility/">Accessibility</a><a class="" href="/licensing/">License</a><a class="" href="/community/">Community</a><a class="" href="/about/">About</a><a class="" href="/contact/">Contact</a><a class="" href="https://github.com/gonisulaimann/Prepare">GitHub ↗</a><a class="" href="/terms/">Terms</a></nav><p class="fine">Current project-owned source: Apache-2.0. Dependencies retain their licenses.<br>Historical downloads through 0.8 retain Hippocratic 3.0. No license change is implied for old artifacts.</p></footer></body></html>

@@ -1,38 +1,117 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dependency and provenance policy — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/DEPENDENCIES.html"><meta name="description" content="Dependency and provenance policy: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="Dependency and provenance policy — Prepare docs"><meta property="og:description" content="Dependency and provenance policy: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/DEPENDENCIES.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Dependency and provenance policy — Prepare docs"><meta name="twitter:description" content="Dependency and provenance policy: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Dependency and provenance policy</h1>
-<p>Original Prepare source remains under Hippocratic License 3.0 core. This is
-ethical-source, not OSI-approved open source. A dependency's permissive license
-does not change the root license or imply ownership of upstream code.</p>
-<h2>Shipped runtime components</h2>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dependency and provenance policy — Prepare</title><meta name="description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><link rel="canonical" href="https://gonisulaimann.github.io/documentation/DEPENDENCIES.html"><meta property="og:type" content="website"><meta property="og:title" content="Dependency and provenance policy — Prepare"><meta property="og:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/DEPENDENCIES.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Dependency and provenance policy — Prepare"><meta name="twitter:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Prepare", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, Linux, macOS; browser workspace", "url": "https://gonisulaimann.github.io/", "license": "https://github.com/gonisulaimann/Prepare/blob/main/LICENSE"}</script><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Prepare home"><span class="brand-mark" aria-hidden="true">P</span>Prepare<span class="brand-note">LOCAL BY DESIGN</span></a><nav aria-label="Primary"><a class="" href="/workflows/">Workflows</a><a class="" href="/download/">Download</a><a class="" href="/documentation/">Documentation</a><a class="nav-action" href="/workspace/">Open workspace ↗</a></nav></header><main id="main" tabindex="-1"><div class="page-intro"><p class="eyebrow">Prepare / Field guide</p><h1>Dependency and provenance policy</h1><p class="deck">Technical documentation and evidence. Older versioned reports retain their original scope.</p></div><p class="fine">Versioned reports retain historical scope and licenses. Current capabilities and license: <a href="/features/">features</a> · <a href="/licensing/">licensing</a>.</p><article class="technical"><p>Original Prepare work in the 0.9 development line uses Apache-2.0. Third-party
+components retain separate grants; earlier releases keep their supplied
+licenses. See <a href="https://github.com/gonisulaimann/Prepare/blob/main/LICENSING.md">LICENSING.md</a>, root LICENSE and NOTICE.</p>
+<h2>Runtime scope by product</h2>
 <ul>
-<li>Native macOS: Apple frameworks provided by the operating system; no bundled
-  third-party runtime. Framework rights remain with Apple.</li>
-<li>Image Portable and readiness engine: original dependency-free JavaScript.</li>
-<li>Android: platform Java/framework APIs; no runtime libraries or INTERNET
-  permission. SDK and test tools are not inside the runtime artifact.</li>
-<li>PDF Workbench / PDF CLI: locally bundled pdf-lib, separately MIT licensed.
-  Its upstream package, exact version, integrity, vendored hashes and license
-  are recorded in <code>pdf/THIRD-PARTY.md</code> and <code>pdf/vendor/</code>. Preserve those notices
-  in both the source ZIP and offline browser bundle. Never fetch it from a
-  CDN at runtime.</li>
+<li>Native Swift macOS app: Apple system frameworks, no third-party Swift packages.
+  This does not describe the separately packaged Python desktop suite.</li>
+<li>Image Portable/readiness engine: original dependency-free JavaScript.</li>
+<li>Android experiment: platform Java/framework APIs; platform/SDK rights are not
+  transferred to Prepare.</li>
+<li>PDF Workbench / CLI: pdf-lib 1.17.1 UMD, including upstream dependencies.
+  MIT notices for pdf-lib, standard-fonts, upng and pako; supplementary zlib
+  source notice; Apache-2.0 plus Microsoft attribution for tslib. Preserve
+  <code>pdf/vendor/LICENSE*</code> and provenance with the generated worker and source ZIP.
+  No runtime CDN fetch. Supplementary notice versions do not prove every
+  embedded dependency version; see <a href="https://github.com/gonisulaimann/Prepare/blob/main/pdf/vendor/README.md">vendor notes</a>.</li>
+<li>Python desktop: direct pins in <code>desktop/requirements.txt</code>; actual collected
+  distributions/versions in each package's <code>licenses/DEPENDENCIES.json</code>.</li>
 </ul>
+<h2>Desktop notices</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>License / qualification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pillow</td>
+<td>MIT-CMU and additional native codec/library terms; retain full LICENSE</td>
+</tr>
+<tr>
+<td>pypdfium2 / PDFium</td>
+<td>BSD-3-Clause / Apache-2.0 and build-specific dependency notices; retain author attribution, not only generic templates</td>
+</tr>
+<tr>
+<td>pypdf</td>
+<td>BSD-3-Clause</td>
+</tr>
+<tr>
+<td>cryptography</td>
+<td>Apache-2.0 OR BSD-3-Clause; use Apache-2.0 for this distribution, preserve both upstream texts</td>
+</tr>
+<tr>
+<td>reportlab</td>
+<td>BSD; fonts separately licensed</td>
+</tr>
+<tr>
+<td>defusedxml</td>
+<td>PSFL</td>
+</tr>
+<tr>
+<td>cffi</td>
+<td>MIT-0 in inspected current distribution; verify installed metadata</td>
+</tr>
+<tr>
+<td>pycparser</td>
+<td>BSD-3-Clause</td>
+</tr>
+<tr>
+<td>charset-normalizer</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td>Python, Tcl/Tk</td>
+<td>Their own runtime notices</td>
+</tr>
+<tr>
+<td>OpenSSL</td>
+<td>Exact runtime version's upstream license/copyright/authors, separately for Python and cryptography builds</td>
+</tr>
+<tr>
+<td>Vera fonts</td>
+<td>Bitstream Vera font license retained with fonts</td>
+</tr>
+</tbody>
+</table>
+<p>Native dependencies include PDFium's codec/font/rendering components and
+Pillow's native codecs. Keep complete upstream texts, not only this summary.
+Prepare uses the FreeType Project (https://freetype.org/) through applicable
+bundled dependencies; FreeType is copyright its respective authors. Detailed
+copyrights and terms are retained in dependency license files.</p>
+<p><code>desktop/package.py</code> collects Python distribution notices plus Python/Tcl/Tk
+texts. On <strong>all platforms</strong>, it detects Python's and cryptography's actual
+OpenSSL versions and retrieves exact upstream tagged LICENSE, AUTHORS and
+copyright header at build time, recording URLs and hashes. Unknown TLS variants
+or unavailable legal text stop packaging; no runtime download is introduced.
+This version detection is not a recursive audit of every linked native binary.</p>
+<p>New bundles prune unused <code>DarkGarden*</code> assets from ReportLab after collection.
+Vera remains available for PDF output with <code>bitstream-vera-license.txt</code>.
+Historical bundles containing DarkGarden remain subject to that font's GPL
+with document-embedding exception; do not call those archives wholly permissive.</p>
+<p>FFmpeg and Tesseract are optional user-installed subprocess tools, not bundled
+by this packager. FFmpeg's license depends on its build/codecs; neither its
+terms nor codec patent questions are resolved by the Prepare root license.</p>
 <h2>Build/test-only components</h2>
-<p>Playwright (pinned in portable/package-lock.json) drives Chromium and Firefox.
-PyMuPDF is installed only for independent PDF parsing/rendering in tests and
-is not distributed inside application or source ZIPs. Its separate license
-still applies to users of that test tool. Java/Android SDK tooling and Python
-packaging utilities are likewise build/test dependencies, not a change to
-the application license. Do not describe a test dependency audit as proof
-that a vendored runtime library has no vulnerabilities.</p>
+<p>Playwright and downloaded browsers are test-only. PyMuPDF is used for independent
+PDF checks, not included in the desktop runtime requirements. PyInstaller is a
+build tool with its own application-bundling exception. SDKs and test tooling
+retain their terms; ensure they do not leak into release archives.</p>
 <h2>Release gates</h2>
 <ul>
-<li>Check upstream package provenance and hashes before vendoring updates.</li>
-<li>Retain original upstream license text and all required attribution.</li>
-<li>Inspect the generated archive inventory, not just the source tree.</li>
-<li>Audit lockfiles and vendored dependencies separately.</li>
-<li>Pin GitHub Actions by reviewed commit SHA; verify runtime migration notes.</li>
-<li>Run secret scans on staged changes and inspect their scope. Do not upload
-  private fixtures or credentials to test vendors or analysis services.</li>
-<li>Record actual audit findings, tool limitations and unresolved advisories.
-  No parser is claimed malware-proof. Size/time/process boundaries supplement
-  rather than replace dependency review and security updates.</li>
-</ul><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>
+<li>Verify vendor hashes and retain complete upstream notices and provenance.</li>
+<li>Inspect <strong>each platform archive</strong>, not just this source tree: identify native
+  libraries and compare the shipped versions against the collected texts.</li>
+<li>Confirm no DarkGarden files, and verify Vera font + license remain usable.</li>
+<li>Verify root LICENSE/NOTICE and all dependency/native notices are included.</li>
+<li>Preserve Python/PDFium author attribution even where generic license texts
+  contain template placeholders. Review additional dependency/native notices.</li>
+<li>Stop publication for missing notices, unknown license/build combinations or
+  unreviewed dependencies. Collected metadata is not a complete binary SBOM.</li>
+<li>Keep historical assets/checksums intact; supplemental historical compliance
+  notices require a separate release-maintainer action, not silent replacement.</li>
+<li>Pin dependencies/actions, audit runtime and build tools separately, avoid
+  private fixtures, and report unresolved findings without security guarantees.</li>
+</ul></article></main><footer class="site-footer"><div><a class="brand" href="/">Prepare</a><p>A copy. A check. A record.<br>No account. No document uploads.</p></div><nav aria-label="Footer"><a class="" href="/privacy/">Privacy</a><a class="" href="/security/">Security</a><a class="" href="/accessibility/">Accessibility</a><a class="" href="/licensing/">License</a><a class="" href="/community/">Community</a><a class="" href="/about/">About</a><a class="" href="/contact/">Contact</a><a class="" href="https://github.com/gonisulaimann/Prepare">GitHub ↗</a><a class="" href="/terms/">Terms</a></nav><p class="fine">Current project-owned source: Apache-2.0. Dependencies retain their licenses.<br>Historical downloads through 0.8 retain Hippocratic 3.0. No license change is implied for old artifacts.</p></footer></body></html>

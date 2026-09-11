@@ -1,5 +1,8 @@
 # Store submission foundations — not submissions
 
+> Historical architecture/planning context. For current capabilities use the desktop, extension and workflow guides; this document is not a current platform-support promise.
+
+
 The downloadable builds are not store-certified. Source is inspectable under
 Hippocratic License 3.0 core; its ethical-use restrictions may exclude some
 free-software repositories. Do not replace the license with MIT to pass a check.
