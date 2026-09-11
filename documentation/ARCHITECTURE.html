@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Architecture — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/ARCHITECTURE.html"><meta property="og:url" content="https://gonisulaimann.github.io/documentation/ARCHITECTURE.html"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Architecture</h1>
+<pre><code class="language-text">SwiftUI workspace (main actor)
+  ordered pages + rotation + paper + margin + byte limit
+                 │ immutable settings snapshot
+                 ▼
+Task.detached → PrepareCore
+  validate → bounded ImageIO decode → white flatten → JPEG encode
+  → rotated, aspect-fit page in CoreGraphics PDF
+                 │ first complete PDF within byte budget
+                 ▼
+PDFKit review + downsampled source comparison → explicit review → new file
+</code></pre>
+<h2>Targets</h2>
+<ul>
+<li><code>PrepareCore</code>: Foundation, ImageIO, CoreGraphics and UniformTypeIdentifiers.
+  Validation, page ordering, layout/rotation and bounded encoding. No UI.</li>
+<li><code>Prepare</code>: SwiftUI/AppKit workspace, file panels and PDFKit preview. Image
+  preparation runs off the main actor. UI edits invalidate reviewed output.</li>
+<li><code>PrepareWorkspace</code>: testable main-actor state, preset application, busy guards,
+  invalidation and bounded asynchronous preview requests.</li>
+<li><code>PrepareChecks</code>: generated fixtures, rendered-pixel assertions, PDF round
+  trips, input rejection, metadata checks, cancellation and overwrite guards.</li>
+</ul>
+<h2>Size fitting</h2>
+<p>MB means 1,000,000 bytes. UI accepts 0.01–100 MB. Core accepts positive byte
+limits up to 100,000,000. Balanced and Grayscale try five candidates in descending quality:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Maximum image edge</th>
+<th style="text-align: right;">JPEG quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">2400 px</td>
+<td style="text-align: right;">0.85</td>
+</tr>
+<tr>
+<td style="text-align: right;">2000 px</td>
+<td style="text-align: right;">0.75</td>
+</tr>
+<tr>
+<td style="text-align: right;">1600 px</td>
+<td style="text-align: right;">0.65</td>
+</tr>
+<tr>
+<td style="text-align: right;">1200 px</td>
+<td style="text-align: right;">0.55</td>
+</tr>
+<tr>
+<td style="text-align: right;">960 px</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+</tbody>
+</table>
+<p>Small File uses only the last three rows, starting at 1600 px / 0.65.
+Grayscale uses a DeviceGray canvas and embeds grayscale JPEG images; the
+review source remains in original color. A Small File or Grayscale choice
+is not a promise that every input becomes smaller than another profile.</p>
+<p>The first complete PDF no larger than the target is returned. Otherwise the
+engine reports that it cannot fit within its floor. This is a bounded search,
+not a mathematically optimal compressor or a visual-quality guarantee.
+Upsampling source detail cannot improve legibility. Review at a useful zoom.</p>
+<p>Original paper mode means <strong>image aspect ratio</strong>, with a 720-point maximum
+page edge, not the camera file's DPI or original physical dimensions. A4 and
+US Letter are portrait pages with aspect-fit content; rotation changes image
+orientation, not the chosen paper orientation. Margins are points (72/inch).
+Transparency is flattened to white; source EXIF orientation is applied before
+user rotation. Standard PDF metadata can remain.</p>
+<h2>Invariants</h2>
+<ol>
+<li>The byte limit applies to the finished PDF, including its overhead.</li>
+<li>The selected page order is the output order, even for repeated inputs.</li>
+<li>Original files are never written; destination creation is exclusive.</li>
+<li>Changing layout, order, rotation or budget clears the previous result.</li>
+<li>Cancellation checks happen between expensive operations and before return.</li>
+<li>Image buffers are page-scoped; no full-resolution multi-page image cache.</li>
+<li>Source comparison is downsampled, not a pixel-identical quality oracle.</li>
+<li>No user data leaves the application through application network code.</li>
+</ol>
+<p>See <a href="https://github.com/gonisulaimann/Prepare/blob/main/SECURITY.md">SECURITY.md</a> for assumptions and limitations.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>

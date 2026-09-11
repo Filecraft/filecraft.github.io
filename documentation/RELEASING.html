@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Release checklist — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/RELEASING.html"><meta property="og:url" content="https://gonisulaimann.github.io/documentation/RELEASING.html"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Release checklist</h1>
+<p>Releases are deliberate maintainer actions, not automatic publications on push.
+The macOS CI workflow checks source and packaging. GitHub Pages serves <code>docs/</code>
+from <code>main</code>; there is no JavaScript build toolchain or website dependency tree.</p>
+<ol>
+<li>Update the version in <code>scripts/package.py</code>, README, CHANGELOG and website.</li>
+<li>Run <code>swift run PrepareChecks</code>, release checks, warnings-as-errors and stress
+   checks. Record machine, compiler, fixture workload and real measured values.</li>
+<li>Run <code>python3 scripts/check-site.py</code>, then preview <code>docs/</code> at narrow and wide
+   widths. Check keyboard focus, anchors, download URLs and reduced motion.
+   Run <code>node scripts/test-site.cjs</code> and <code>python3 scripts/test_release_budget.py</code>.</li>
+<li><code>bash scripts/package.sh</code>; inspect the bundle version and arm64 architecture.
+   Packaging rejects a binary ≥2,000,000 bytes, app ≥3,000,000 bytes, or ZIP
+   ≥1,500,000 bytes. Inspect <code>build/release-size.json</code>. Do not loosen budgets
+   silently. Keep marketing images outside the app bundle.</li>
+<li>Run <code>codesign --verify --strict build/Prepare.app</code>. Launch the app and test
+   add, reorder, rotate, margins, compare, cancellation and new-file export.</li>
+<li>Unzip into a temporary directory and repeat signature and bundle checks.
+   Confirm LICENSE, NOTICE and icon resources are included.</li>
+<li>Review <code>git diff --cached</code> for credentials, private samples and generated
+   artifacts. Require green CI before publishing release assets.</li>
+<li>Tag the exact reviewed commit and publish the ZIP, checksum, LICENSE and
+   verification report with <code>gh release create</code>. Explain signing status in
+   the release notes. Download the assets again and check SHA-256.</li>
+<li>Verify the public repository, release and GitHub Pages URL independently.</li>
+</ol>
+<h2>Signing status</h2>
+<p>Current builds use an ad-hoc signature and are <strong>not notarized</strong>. Do not claim
+otherwise or tell users to disable Gatekeeper globally. Users may need to
+approve the app through System Settings → Privacy &amp; Security after attempting
+to open it. Corporate policies may forbid running it; building locally is an
+alternative, not a policy bypass.</p>
+<p><code>SIGN_IDENTITY</code> can select a valid installed Developer ID certificate when
+packaging. That only signs the app. Notarization, ticket stapling and fresh
+Gatekeeper assessment must be completed separately before changing claims.
+Do not publish signing credentials or embed credentials in CI. Intel/universal
+builds require their own hardware testing and correct asset architecture names.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>

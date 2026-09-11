@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>v0.4.0 website verification — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/WEBSITE-QA.html"><meta property="og:url" content="https://gonisulaimann.github.io/documentation/WEBSITE-QA.html"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>v0.4.0 website verification</h1>
+<p>The site is a static HTML/CSS page with a dependency-free local preset guide.
+It never processes user documents. Canonical URL and domain findings:
+<a href="DOMAIN.html">DOMAIN.md</a>.</p>
+<h2>Executed browser checks</h2>
+<ul>
+<li>Viewports 1440, 768, 390 and 320 px: no horizontal document overflow.</li>
+<li>Local icon and real app screenshot load successfully.</li>
+<li>All three preset buttons switch displayed settings and <code>aria-pressed</code> state.</li>
+<li>Keyboard Enter activates the focused preset button.</li>
+<li>Native FAQ expansion and download-section anchor navigation work.</li>
+<li>Reduced motion reports <code>scroll-behavior: auto</code> and zero button transition duration.</li>
+<li>With JavaScript disabled, download links and installation guidance remain usable;
+  a <code>noscript</code> message explains the nonessential preset guide.</li>
+<li>No window errors observed during the exercised interactions.</li>
+<li>All preset buttons have at least 44 px height at tested widths.</li>
+<li>Desktop, mobile and preset-section screenshots inspected. Smaller privacy labels
+  were enlarged and the product screenshot brought closer to the hero.</li>
+</ul>
+<p>These are targeted checks, not full accessibility certification or every-browser
+coverage. The development screenshot was replaced with a real 0.4.0 window capture
+showing synthetic-only source-color versus grayscale output.</p>
+<h2>Automated checks</h2>
+<p><code>python3 scripts/check-site.py</code> checks assets, anchors, unique IDs, image alt text,
+HTTPS links, one H1, versioned download URL, local-only deferred script, no runtime
+network/storage APIs, reduced-motion/focus styles, script &lt;5 KB and markup/style/script
+&lt;50 KB combined. These static checks do not prove complete accessibility.</p>
+<p><code>node scripts/test-site.cjs</code> exercises preset values, invalid keys and independent
+state. Node is only required to run website tests, not to build or use the app.</p>
+<h2>Design review</h2>
+<p>Decide/Learn surface. Original forest-green editorial composition, alternating
+paper-light review section, deliberate Helvetica Neue/Georgia/system-mono typography,
+real app imagery and a functional settings guide. No remote fonts, WebGL, video,
+framework runtime, fabricated testimonials or invented compression ratios.</p>
+<p>Self-audit: no generic feature-tile grid, all-centered composition, decorative metrics,
+icon toppers or violet gradient treatment. Color is not used as the only selected-state
+signal: preset buttons expose <code>aria-pressed</code> and corresponding written settings.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>

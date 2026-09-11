@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Verification — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/VERIFICATION.html"><meta property="og:url" content="https://gonisulaimann.github.io/documentation/VERIFICATION.html"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Verification</h1>
+<p>Current release: <a href="VERIFICATION-0.4.html">v0.4.0 verification</a>.
+The evidence below is retained for the v0.3.0 release. scope</p>
+<p>The 0.3.0 release is validated with executable core checks, release packaging,
+synthetic-image UI smoke testing and browser checks of the project website.
+This is not a professional security audit or full accessibility certification.</p>
+<h2>Website</h2>
+<ul>
+<li>Dependency-free HTML/CSS. No JavaScript, remote fonts, analytics or forms.</li>
+<li>Browser DOM layout checked at 1440, 768, 390 and 320 pixels wide: no
+  horizontal document overflow or out-of-viewport element rectangles.</li>
+<li>Install anchor navigation and native FAQ expansion checked in a browser.</li>
+<li>Desktop and mobile screenshots inspected for readable layout and clipping.</li>
+<li>Automated offline check validates local assets, unique anchors, external
+  HTTPS URLs, heading count, alt attributes, versioned download links,
+  visible notarization/license disclosures, focus and reduced-motion styles.</li>
+<li>Website is served by GitHub Pages, subject to GitHub's request logging.</li>
+</ul>
+<h2>App</h2>
+<p>See <a href="PERFORMANCE.html">performance and core checks</a>,
+<a href="ARCHITECTURE.html">architecture</a> and <a href="https://github.com/gonisulaimann/Prepare/blob/main/SECURITY.md">security scope</a>.</p>
+<h2>Packaged app smoke test</h2>
+<p>Verified against the arm64 0.3.0 app using macOS Accessibility APIs:</p>
+<ul>
+<li>Multi-file Finder/Open With launch imports both synthetic sample PNGs into
+  one workspace (a failed earlier WindowGroup routing experiment was fixed).</li>
+<li>A4 selection, per-page 90° rotation and moving page 2 before page 1.</li>
+<li>Preparing two pages produced a reopened preview: 579,035 bytes under a 2 MB
+  limit for that sample/settings run. This is not a general compression claim.</li>
+<li>Page navigation showed two single-page PDF panes for the same selected page.</li>
+<li>Rotation after preparation cleared output and review approval.</li>
+<li>Review checkbox gates saving; an attempted existing destination was rejected.</li>
+<li>Core save tests separately verify new-file export bytes and original protection.</li>
+<li>Screenshot captured from the real packaged app with synthetic samples only.</li>
+<li>The full comparison is visible at 1200×740; minimum window is 850×620 with
+  a scrolling control column. Not a complete VoiceOver or keyboard audit.</li>
+</ul>
+<p>The UI and generated PDF do not add OCR. macOS PDFKit may independently expose
+Live Text in its view; that is platform behavior, not a searchable output promise.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>

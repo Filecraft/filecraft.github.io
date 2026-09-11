@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Performance and verification — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/PERFORMANCE.html"><meta property="og:url" content="https://gonisulaimann.github.io/documentation/PERFORMANCE.html"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Performance and verification</h1>
+<h2>Local release-core measurement</h2>
+<p>Measured on 2026-09-11 on a MacBook Air with Apple M4 (10 cores), 16 GB
+memory, macOS 27.0 build 26A5425a; Swift 6.4, arm64 release build.</p>
+<p>Command (after compilation):</p>
+<pre><code class="language-sh">BIN=&quot;$(swift build -c release --show-bin-path)&quot;
+/usr/bin/time -l &quot;$BIN/PrepareChecks&quot; --stress --fixtures build/demo
+</code></pre>
+<p>Observed exit status: 0. All behavioral checks and 12 stress batches passed.</p>
+<table>
+<thead>
+<tr>
+<th>Observation</th>
+<th style="text-align: right;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total wall time, entire checks + stress invocation</td>
+<td style="text-align: right;">5.98 s</td>
+</tr>
+<tr>
+<td>User CPU time</td>
+<td style="text-align: right;">2.51 s</td>
+</tr>
+<tr>
+<td>System CPU time</td>
+<td style="text-align: right;">1.49 s</td>
+</tr>
+<tr>
+<td>Maximum resident set size</td>
+<td style="text-align: right;">147,243,008 bytes (140.4 MiB)</td>
+</tr>
+<tr>
+<td>Peak memory footprint reported by <code>time</code></td>
+<td style="text-align: right;">105,300,808 bytes (100.4 MiB)</td>
+</tr>
+<tr>
+<td>Swaps reported by <code>time</code></td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>This is a single synthetic regression workload, not a representative scan
+benchmark, a per-document latency promise or a UI responsiveness measurement.
+The stress loop uses twelve batches of twenty copies of a generated fixture.
+The invocation also generates fixtures and runs correctness checks. Images,
+macOS codecs, CPU load and chosen budgets materially change real performance.
+Compilation is excluded. Logs are included as release assets.</p>
+<h2>Correctness coverage</h2>
+<p>The executable harness checks PDF reopen/render, final byte limits, input
+limits, overwrite rejection, original preservation, cooperative cancellation,
+EXIF correction, metadata sentinel omission, PNG/JPEG/HEIC, rendered clockwise
+rotation, all page rotations, Original/A4/Letter geometry, white margins,
+invalid settings, selected-page extraction and identity-based list navigation.</p>
+<p>Source preview is capped at a 1600-pixel longest edge; output attempts range
+from 2400 to 960 pixels. Neither is an original-resolution forensic comparison.</p>
+<h2>Leak-tool caveat</h2>
+<p>A separate <code>leaks --atExit -- PrepareChecks --stress</code> invocation passed the
+functional workload but returned status 1: the tool reported two allocations
+(384 bytes total) associated with the async test executable's top-level
+fixture array and printed string. It also warned that the process was not
+debuggable, restricting inspection. This is not a clean leak certification;
+it does not establish that the UI or long-running sessions are leak-free.
+The functional release gates do not depend on this restricted leak scan.</p>
+<h2>Toolchain note</h2>
+<p>This machine's default Swift 6.4 <code>swiftbuild</code> backend emits linker search-path
+warnings for absent optional CommandLineTools Developer framework/library
+directories. Builds and checks complete successfully with Swift compiler
+warnings treated as errors. A cross-check using <code>--build-system native</code> also
+compiled successfully without those linker warnings; that backend itself is
+deprecated. The project does not hide the warnings or modify system directories.
+The default, supported build path remains <code>swift build</code>.</p>
+<p>Minimum supported deployment target is macOS 14. The local run above does not
+constitute testing on every supported macOS version or Intel hardware.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>
