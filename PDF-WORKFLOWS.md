@@ -1,4 +1,4 @@
-# Prepare PDF core
+# Filecraft PDF core
 
 Dependency-local Node 22+ and browser PDF page operations. No runtime npm install,
 network access, server, shell execution, or document upload. Project code retains
@@ -7,17 +7,17 @@ its original licenses; see [vendor notes](vendor/README.md).
 
 ## Shared API (stable paths for the browser workbench)
 
-Load `pdf/vendor/pdf-lib.min.js`, then `pdf/document.js`: global **PreparePDF**.
-CommonJS: `const PreparePDF = require('./pdf/document.js')`.
+Load `pdf/vendor/pdf-lib.min.js`, then `pdf/document.js`: global **FilecraftPDF**.
+CommonJS: `const FilecraftPDF = require('./pdf/document.js')`.
 The host must execute browser operations in a dedicated Worker and terminate it
 on cancellation/timeout. A Blob worker can concatenate these two local files for
 `file://` support. The core does not create workers or implement cancellation.
 Do not execute untrusted PDF operations on a browser UI thread or main Node thread.
 
 ```js
-const info = await PreparePDF.inspect(bytes); // Uint8Array or Node Buffer
+const info = await FilecraftPDF.inspect(bytes); // Uint8Array or Node Buffer
 // {pageCount, pages:[{width,height,rotation}], byteLength, warnings}
-const output = await PreparePDF.transform([firstPDF, secondPDF], [
+const output = await FilecraftPDF.transform([firstPDF, secondPDF], [
   {source:1, page:0, rotation:90},
   {source:0, page:2, rotation:0},
   {source:0, page:2, rotation:-90}, // duplicate is intentional
@@ -38,9 +38,9 @@ const output = await PreparePDF.transform([firstPDF, secondPDF], [
 - `maxBytes` is optional; when provided it must be an integer from 1 to 52,428,800.
   The browser should set its explicit selected budget. Default/hard output cap is
   50 MiB. This is **not compression**: an over-budget result is rejected.
-- `await PreparePDF.transformVerified(inputs, plan, options)` returns `{bytes,info}`
+- `await FilecraftPDF.transformVerified(inputs, plan, options)` returns `{bytes,info}`
   from the same validated output reload, including outputs above the input cap.
-- `PreparePDF.limits` and `PreparePDF.version` are read-only exported constants.
+- `FilecraftPDF.limits` and `FilecraftPDF.version` are read-only exported constants.
 
 ### Bounds
 

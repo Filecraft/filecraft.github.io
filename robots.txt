@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gonisulaimann.github.io/sitemap.xml
+Sitemap: https://filecraft.github.io/sitemap.xml

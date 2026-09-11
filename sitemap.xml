@@ -1,156 +1,162 @@
 <?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gonisulaimann.github.io/</loc>
+    <loc>https://filecraft.github.io/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/ACKNOWLEDGMENTS.html</loc>
+    <loc>https://filecraft.github.io/documentation/ACKNOWLEDGMENTS.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/ARCHITECTURE.html</loc>
+    <loc>https://filecraft.github.io/documentation/ARCHITECTURE.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/CLI.html</loc>
+    <loc>https://filecraft.github.io/documentation/CLI.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/DEPENDENCIES.html</loc>
+    <loc>https://filecraft.github.io/documentation/DEPENDENCIES.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/DESIGN-SYSTEM.html</loc>
+    <loc>https://filecraft.github.io/documentation/DESIGN-SYSTEM.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/DESKTOP-SUITE.html</loc>
+    <loc>https://filecraft.github.io/documentation/DESKTOP-SUITE.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/DOMAIN.html</loc>
+    <loc>https://filecraft.github.io/documentation/DOMAIN.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/ENGINE-ARCHITECTURE.html</loc>
+    <loc>https://filecraft.github.io/documentation/ENGINE-ARCHITECTURE.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/GOVERNANCE.html</loc>
+    <loc>https://filecraft.github.io/documentation/GOVERNANCE.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/IDENTITY-RESEARCH.html</loc>
+    <loc>https://filecraft.github.io/documentation/IDENTITY-RESEARCH.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/PDF-WORKFLOWS.html</loc>
+    <loc>https://filecraft.github.io/documentation/PDF-WORKFLOWS.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/PERFORMANCE.html</loc>
+    <loc>https://filecraft.github.io/documentation/PERFORMANCE.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/PLATFORM-QUALIFICATION.html</loc>
+    <loc>https://filecraft.github.io/documentation/PLATFORM-QUALIFICATION.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/PRODUCT-ROADMAP.html</loc>
+    <loc>https://filecraft.github.io/documentation/PRODUCT-ROADMAP.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/RELEASING.html</loc>
+    <loc>https://filecraft.github.io/documentation/RELEASING.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/ROADMAP-100.html</loc>
+    <loc>https://filecraft.github.io/documentation/ROADMAP-100.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/STORE-FOUNDATIONS.html</loc>
+    <loc>https://filecraft.github.io/documentation/STORE-FOUNDATIONS.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/VERIFICATION-0.4.html</loc>
+    <loc>https://filecraft.github.io/documentation/VERIFICATION-0.4.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/VERIFICATION-0.5.html</loc>
+    <loc>https://filecraft.github.io/documentation/VERIFICATION-0.5.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/VERIFICATION.html</loc>
+    <loc>https://filecraft.github.io/documentation/VERIFICATION.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/WEBSITE-QA.html</loc>
+    <loc>https://filecraft.github.io/documentation/WEBSITE-QA.html</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/documentation/</loc>
+    <loc>https://filecraft.github.io/documentation/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/about/</loc>
+    <loc>https://filecraft.github.io/about/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/accessibility/</loc>
+    <loc>https://filecraft.github.io/accessibility/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/changelog/</loc>
+    <loc>https://filecraft.github.io/ai-disclosure/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/cli/</loc>
+    <loc>https://filecraft.github.io/changelog/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/community/</loc>
+    <loc>https://filecraft.github.io/cli/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/contact/</loc>
+    <loc>https://filecraft.github.io/community/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/contributing/</loc>
+    <loc>https://filecraft.github.io/contact/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/desktop/</loc>
+    <loc>https://filecraft.github.io/contributing/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/download/</loc>
+    <loc>https://filecraft.github.io/cookies/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/extension/</loc>
+    <loc>https://filecraft.github.io/desktop/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/faq/</loc>
+    <loc>https://filecraft.github.io/download/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/features/</loc>
+    <loc>https://filecraft.github.io/extension/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/getting-started/</loc>
+    <loc>https://filecraft.github.io/faq/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/licensing/</loc>
+    <loc>https://filecraft.github.io/features/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/mobile/</loc>
+    <loc>https://filecraft.github.io/getting-started/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/platforms/</loc>
+    <loc>https://filecraft.github.io/licensing/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/privacy/</loc>
+    <loc>https://filecraft.github.io/mobile/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/profiles/</loc>
+    <loc>https://filecraft.github.io/platforms/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/readiness/</loc>
+    <loc>https://filecraft.github.io/privacy/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/releases/</loc>
+    <loc>https://filecraft.github.io/profiles/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/requirements/</loc>
+    <loc>https://filecraft.github.io/readiness/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/roadmap/</loc>
+    <loc>https://filecraft.github.io/releases/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/security/</loc>
+    <loc>https://filecraft.github.io/requirements/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/supported-formats/</loc>
+    <loc>https://filecraft.github.io/roadmap/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/terms/</loc>
+    <loc>https://filecraft.github.io/security/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/web/</loc>
+    <loc>https://filecraft.github.io/supported-formats/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/workflows/</loc>
+    <loc>https://filecraft.github.io/terms/</loc>
   </url>
   <url>
-    <loc>https://gonisulaimann.github.io/workspace/</loc>
+    <loc>https://filecraft.github.io/web/</loc>
+  </url>
+  <url>
+    <loc>https://filecraft.github.io/workflows/</loc>
+  </url>
+  <url>
+    <loc>https://filecraft.github.io/workspace/</loc>
   </url>
 </urlset>

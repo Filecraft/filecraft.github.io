@@ -1,0 +1,352 @@
+[
+  {
+    "tag": "v0.9.0-beta.1",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.9.0-beta.1",
+    "name": "Prepare 0.9.0-beta.1 \u2014 copies, requirements, receipts",
+    "published": "2026-09-11T22:52:55Z",
+    "prerelease": true,
+    "current": true,
+    "assets": [
+      {
+        "name": "Prepare-0.9.0-beta.1-desktop-darwin-arm64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-desktop-darwin-arm64.zip",
+        "bytes": 28214948
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-desktop-darwin-arm64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-desktop-darwin-arm64.zip.sha256",
+        "bytes": 112
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-desktop-darwin-x86_64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-desktop-darwin-x86_64.zip",
+        "bytes": 29627102
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-desktop-darwin-x86_64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-desktop-darwin-x86_64.zip.sha256",
+        "bytes": 113
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-desktop-linux-x86_64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-desktop-linux-x86_64.zip",
+        "bytes": 50211014
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-desktop-linux-x86_64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-desktop-linux-x86_64.zip.sha256",
+        "bytes": 112
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-desktop-windows-amd64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-desktop-windows-amd64.zip",
+        "bytes": 32416963
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-desktop-windows-amd64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-desktop-windows-amd64.zip.sha256",
+        "bytes": 114
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-extension-chromium.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-extension-chromium.zip",
+        "bytes": 251986
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-extension-chromium.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-extension-chromium.zip.sha256",
+        "bytes": 110
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-extension-firefox.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-extension-firefox.zip",
+        "bytes": 252090
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-extension-firefox.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-extension-firefox.zip.sha256",
+        "bytes": 109
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-pdf-workbench.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-pdf-workbench.zip",
+        "bytes": 247225
+      },
+      {
+        "name": "Prepare-0.9.0-beta.1-pdf-workbench.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.9.0-beta.1/Prepare-0.9.0-beta.1-pdf-workbench.zip.sha256",
+        "bytes": 105
+      }
+    ]
+  },
+  {
+    "tag": "v0.8.0-beta.1",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.8.0-beta.1",
+    "name": "Prepare 0.8.0-beta.1 \u2014 Offline Desktop Suite",
+    "published": "2026-09-11T20:32:11Z",
+    "prerelease": true,
+    "current": false,
+    "assets": [
+      {
+        "name": "Prepare-0.8.0-beta.1-desktop-darwin-arm64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-darwin-arm64.zip",
+        "bytes": 28440126
+      },
+      {
+        "name": "Prepare-0.8.0-beta.1-desktop-darwin-arm64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-darwin-arm64.zip.sha256",
+        "bytes": 112
+      },
+      {
+        "name": "Prepare-0.8.0-beta.1-desktop-darwin-x86_64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-darwin-x86_64.zip",
+        "bytes": 29856556
+      },
+      {
+        "name": "Prepare-0.8.0-beta.1-desktop-darwin-x86_64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-darwin-x86_64.zip.sha256",
+        "bytes": 113
+      },
+      {
+        "name": "Prepare-0.8.0-beta.1-desktop-linux-x86_64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-linux-x86_64.zip",
+        "bytes": 50435866
+      },
+      {
+        "name": "Prepare-0.8.0-beta.1-desktop-linux-x86_64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-linux-x86_64.zip.sha256",
+        "bytes": 112
+      },
+      {
+        "name": "Prepare-0.8.0-beta.1-desktop-windows-amd64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-windows-amd64.zip",
+        "bytes": 32642312
+      },
+      {
+        "name": "Prepare-0.8.0-beta.1-desktop-windows-amd64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.8.0-beta.1/Prepare-0.8.0-beta.1-desktop-windows-amd64.zip.sha256",
+        "bytes": 114
+      }
+    ]
+  },
+  {
+    "tag": "v0.7.0-beta.1",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.7.0-beta.1",
+    "name": "Prepare 0.7.0-beta.1 \u2014 local PDF workflows",
+    "published": "2026-09-11T17:15:56Z",
+    "prerelease": true,
+    "current": false,
+    "assets": [
+      {
+        "name": "Prepare-0.5.0-x86_64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.7.0-beta.1/Prepare-0.5.0-x86_64.zip",
+        "bytes": 337276
+      },
+      {
+        "name": "Prepare-0.5.0-x86_64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.7.0-beta.1/Prepare-0.5.0-x86_64.zip.sha256",
+        "bytes": 91
+      },
+      {
+        "name": "Prepare-0.7.0-beta.1-pdf-workbench.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.7.0-beta.1/Prepare-0.7.0-beta.1-pdf-workbench.zip",
+        "bytes": 245585
+      },
+      {
+        "name": "Prepare-0.7.0-beta.1-pdf-workbench.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.7.0-beta.1/Prepare-0.7.0-beta.1-pdf-workbench.zip.sha256",
+        "bytes": 105
+      },
+      {
+        "name": "Prepare-0.7.0-beta.1-portable.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.7.0-beta.1/Prepare-0.7.0-beta.1-portable.zip",
+        "bytes": 24926
+      },
+      {
+        "name": "Prepare-0.7.0-beta.1-portable.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.7.0-beta.1/Prepare-0.7.0-beta.1-portable.zip.sha256",
+        "bytes": 100
+      },
+      {
+        "name": "prepare-pdf-source.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.7.0-beta.1/prepare-pdf-source.zip",
+        "bytes": 249176
+      },
+      {
+        "name": "prepare-pdf-source.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.7.0-beta.1/prepare-pdf-source.zip.sha256",
+        "bytes": 89
+      }
+    ]
+  },
+  {
+    "tag": "v0.6.0-beta.1",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.6.0-beta.1",
+    "name": "Readiness foundation 0.6 beta \u2014 Portable and source CLI",
+    "published": "2026-09-11T14:51:13Z",
+    "prerelease": true,
+    "current": false,
+    "assets": [
+      {
+        "name": "document-engine-source.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.6.0-beta.1/document-engine-source.zip",
+        "bytes": 30349
+      },
+      {
+        "name": "document-engine-source.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.6.0-beta.1/document-engine-source.zip.sha256",
+        "bytes": 93
+      },
+      {
+        "name": "LICENSE",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.6.0-beta.1/LICENSE",
+        "bytes": 16325
+      },
+      {
+        "name": "NOTICE",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.6.0-beta.1/NOTICE",
+        "bytes": 624
+      },
+      {
+        "name": "Prepare-0.6.0-beta.1-portable.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.6.0-beta.1/Prepare-0.6.0-beta.1-portable.zip",
+        "bytes": 24452
+      },
+      {
+        "name": "Prepare-0.6.0-beta.1-portable.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.6.0-beta.1/Prepare-0.6.0-beta.1-portable.zip.sha256",
+        "bytes": 100
+      }
+    ]
+  },
+  {
+    "tag": "v0.5.0",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.5.0",
+    "name": "Prepare 0.5.0 \u2014 native Mac and offline desktop companion",
+    "published": "2026-09-11T10:43:27Z",
+    "prerelease": false,
+    "current": false,
+    "assets": [
+      {
+        "name": "LICENSE",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0/LICENSE",
+        "bytes": 16325
+      },
+      {
+        "name": "NOTICE",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0/NOTICE",
+        "bytes": 624
+      },
+      {
+        "name": "Prepare-0.5.0-arm64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0/Prepare-0.5.0-arm64.zip",
+        "bytes": 682160
+      },
+      {
+        "name": "Prepare-0.5.0-arm64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0/Prepare-0.5.0-arm64.zip.sha256",
+        "bytes": 90
+      },
+      {
+        "name": "Prepare-0.5.0-portable.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0/Prepare-0.5.0-portable.zip",
+        "bytes": 17173
+      },
+      {
+        "name": "Prepare-0.5.0-portable.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0/Prepare-0.5.0-portable.zip.sha256",
+        "bytes": 93
+      }
+    ]
+  },
+  {
+    "tag": "v0.5.0-portable-preview.1",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.5.0-portable-preview.1",
+    "name": "Prepare Portable 0.5.0 preview \u2014 Windows & Linux, offline",
+    "published": "2026-09-11T08:47:55Z",
+    "prerelease": true,
+    "current": false,
+    "assets": [
+      {
+        "name": "Prepare-0.5.0-portable.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-portable-preview.1/Prepare-0.5.0-portable.zip",
+        "bytes": 16642
+      },
+      {
+        "name": "Prepare-0.5.0-portable.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-portable-preview.1/Prepare-0.5.0-portable.zip.sha256",
+        "bytes": 93
+      }
+    ]
+  },
+  {
+    "tag": "v0.5.0-android-experimental.1",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.5.0-android-experimental.1",
+    "name": "Prepare Android experimental \u2014 UNSIGNED developer APK",
+    "published": "2026-09-11T10:43:22Z",
+    "prerelease": true,
+    "current": false,
+    "assets": [
+      {
+        "name": "LICENSE",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-android-experimental.1/LICENSE",
+        "bytes": 16325
+      },
+      {
+        "name": "NOTICE",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-android-experimental.1/NOTICE",
+        "bytes": 624
+      },
+      {
+        "name": "Prepare-0.5.0-android-experimental-UNSIGNED.apk",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-android-experimental.1/Prepare-0.5.0-android-experimental-UNSIGNED.apk",
+        "bytes": 24796
+      },
+      {
+        "name": "Prepare-0.5.0-android-experimental-UNSIGNED.apk.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-android-experimental.1/Prepare-0.5.0-android-experimental-UNSIGNED.apk.sha256",
+        "bytes": 114
+      }
+    ]
+  },
+  {
+    "tag": "v0.4.0",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.4.0",
+    "name": "Prepare 0.4.0 \u2014 tiny download, bigger workbench",
+    "published": "2026-09-11T02:54:47Z",
+    "prerelease": false,
+    "current": false,
+    "assets": [
+      {
+        "name": "Prepare-0.4.0-arm64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.4.0/Prepare-0.4.0-arm64.zip",
+        "bytes": 667989
+      },
+      {
+        "name": "Prepare-0.4.0-arm64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.4.0/Prepare-0.4.0-arm64.zip.sha256",
+        "bytes": 90
+      }
+    ]
+  },
+  {
+    "tag": "v0.3.0",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.3.0",
+    "name": "Prepare 0.3.0 \u2014 a smaller file, a simpler handoff",
+    "published": "2026-09-11T02:17:05Z",
+    "prerelease": false,
+    "current": false,
+    "assets": [
+      {
+        "name": "Prepare-0.3.0-arm64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.3.0/Prepare-0.3.0-arm64.zip",
+        "bytes": 599355
+      },
+      {
+        "name": "Prepare-0.3.0-arm64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.3.0/Prepare-0.3.0-arm64.zip.sha256",
+        "bytes": 90
+      }
+    ]
+  }
+]

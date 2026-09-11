@@ -16,7 +16,7 @@ Geometry and byte-budget concepts are shared, not an identical binary engine.
 Platform codecs, page defaults, cancellation latency and previews differ. Each
 platform has separate rendered-output, input-bound and packaging tests; do not
 infer parity from a roadmap item. See [Android scope](../android/README.md),
-[Portable scope](https://github.com/gonisulaimann/Prepare/blob/main/portable/README.txt) and [v0.5 evidence](VERIFICATION-0.5.md).
+[Portable scope](https://github.com/Filecraft/Filecraft/blob/main/portable/README.txt) and [v0.5 evidence](VERIFICATION-0.5.md).
 
 ## Earlier native architecture notes
 
@@ -25,7 +25,7 @@ SwiftUI workspace (main actor)
   ordered pages + rotation + paper + margin + byte limit
                  │ immutable settings snapshot
                  ▼
-Task.detached → PrepareCore
+Task.detached → FilecraftCore
   validate → bounded ImageIO decode → white flatten → JPEG encode
   → rotated, aspect-fit page in CoreGraphics PDF
                  │ first complete PDF within byte budget
@@ -35,13 +35,13 @@ PDFKit review + downsampled source comparison → explicit review → new file
 
 ## Targets
 
-- `PrepareCore`: Foundation, ImageIO, CoreGraphics and UniformTypeIdentifiers.
+- `FilecraftCore`: Foundation, ImageIO, CoreGraphics and UniformTypeIdentifiers.
   Validation, page ordering, layout/rotation and bounded encoding. No UI.
-- `Prepare`: SwiftUI/AppKit workspace, file panels and PDFKit preview. Image
+- `Filecraft`: SwiftUI/AppKit workspace, file panels and PDFKit preview. Image
   preparation runs off the main actor. UI edits invalidate reviewed output.
-- `PrepareWorkspace`: testable main-actor state, preset application, busy guards,
+- `FilecraftWorkspace`: testable main-actor state, preset application, busy guards,
   invalidation and bounded asynchronous preview requests.
-- `PrepareChecks`: generated fixtures, rendered-pixel assertions, PDF round
+- `FilecraftChecks`: generated fixtures, rendered-pixel assertions, PDF round
   trips, input rejection, metadata checks, cancellation and overwrite guards.
 
 ## Size fitting

@@ -1,6 +1,6 @@
 # Search visibility and deployment
 
-The current canonical website is https://gonisulaimann.github.io/.
+The current canonical website is https://filecraft.github.io/.
 An organization migration is pending organization creation and authenticated owner
 access. No canonical or download link points to an unowned domain.
 
@@ -23,9 +23,9 @@ access. No canonical or download link points to an unowned domain.
 
 ## Accuracy and limits
 
-Prepare is Hippocratic License 3.0 core ethical-source software, not OSI-approved
+Filecraft is Hippocratic License 3.0 core ethical-source software, not OSI-approved
 open source. The site does not mislabel the license to target search keywords.
-Prepare creates compressed PDFs from images; it does not compress existing PDF
+Filecraft creates compressed PDFs from images; it does not compress existing PDF
 inputs. Visible copy and structured data maintain this distinction.
 
 No user ratings or reviews have been invented. SoftwareApplication schema is
@@ -35,7 +35,7 @@ indexing dates and rich snippets are controlled by search engines.
 
 Search Console ownership verification and sitemap submission have not been done.
 The site owner can add a URL-prefix property, supply the verification token, then
-submit https://gonisulaimann.github.io/sitemap.xml. No fabricated verification
+submit https://filecraft.github.io/sitemap.xml. No fabricated verification
 meta tag or obsolete sitemap-ping endpoint is used.
 
 References:

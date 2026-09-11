@@ -2,12 +2,12 @@
 
 Releases are deliberate maintainer actions, not automatic publications on push.
 The macOS CI workflow checks source and packaging. The official website is
-https://gonisulaimann.github.io/ and publishes `main:/` from the dedicated
-`gonisulaimann/gonisulaimann.github.io` repository. This app repository keeps
+https://filecraft.github.io/ and publishes `main:/` from the dedicated
+`gonisulaimann/filecraft.github.io` repository. This app repository keeps
 a legacy landing-page redirect; do not edit its old assets to update the live site.
 
 1. Update the version in `scripts/package.py`, README, CHANGELOG and website.
-2. Run `swift run PrepareChecks`, release checks, warnings-as-errors and stress
+2. Run `swift run FilecraftChecks`, release checks, warnings-as-errors and stress
    checks. Record machine, compiler, fixture workload and real measured values.
 3. Run the app repository redirect check (`python3 scripts/check-site.py`).
    In the dedicated site repository, regenerate HTML docs and run its site
@@ -18,7 +18,7 @@ a legacy landing-page redirect; do not edit its old assets to update the live si
    Packaging rejects a binary ≥2,000,000 bytes, app ≥3,000,000 bytes, or ZIP
    ≥1,500,000 bytes. Inspect `build/release-size.json`. Do not loosen budgets
    silently. Keep marketing images outside the app bundle.
-5. Run `codesign --verify --strict build/Prepare.app`. Launch the app and test
+5. Run `codesign --verify --strict build/Filecraft.app`. Launch the app and test
    add, reorder, rotate, margins, compare, cancellation and new-file export.
 6. Unzip into a temporary directory and repeat signature and bundle checks.
    Confirm LICENSE, NOTICE and icon resources are included.

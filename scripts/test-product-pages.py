@@ -11,7 +11,7 @@ class Links(HTMLParser):
         if t=='a':self.links.append(d.get('href',''))
 for name in PAGES:
     p=ROOT/name/'index.html';assert p.is_file(),name
-    h=Links();h.feed(p.read_text());assert h.h1==1 and h.canonical==['https://gonisulaimann.github.io/'+name+'/'],name
+    h=Links();h.feed(p.read_text());assert h.h1==1 and h.canonical==['https://filecraft.github.io/'+name+'/'],name
     for url in h.links:
         if url.startswith('/'):
             target=ROOT/url.split('#')[0].lstrip('/');assert target.is_file() or (target/'index.html').is_file(),(name,url)

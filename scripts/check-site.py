@@ -15,12 +15,12 @@ class Page(HTMLParser):
 files=[ROOT/'index.html',*sorted((ROOT/'documentation').glob('*.html')),*sorted(p for p in ROOT.glob('*/index.html') if p.parent.name!='documentation')]
 import xml.etree.ElementTree as ET
 urls={n.text for n in ET.parse(ROOT/'sitemap.xml').findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')}
-expected={'https://gonisulaimann.github.io/'+str(f.relative_to(ROOT)).removesuffix('index.html') for f in files}
+expected={'https://filecraft.github.io/'+str(f.relative_to(ROOT)).removesuffix('index.html') for f in files}
 assert expected==urls, 'Sitemap must enumerate every public content page exactly'
 assert len(files)>=35
 count=0
 for f in files:
-    p=Page();p.feed(f.read_text());expected='https://gonisulaimann.github.io/'+str(f.relative_to(ROOT)).removesuffix('index.html');assert p.canonical==expected,(f,p.canonical,expected)
+    p=Page();p.feed(f.read_text());expected='https://filecraft.github.io/'+str(f.relative_to(ROOT)).removesuffix('index.html');assert p.canonical==expected,(f,p.canonical,expected)
     for u in p.links:
         parts=urlsplit(u)
         if parts.scheme:assert parts.scheme=='https';continue
@@ -30,7 +30,7 @@ for f in files:
         elif parts.fragment:assert parts.fragment in p.ids,(f,u)
         count+=1
 text=(ROOT/'index.html').read_text()
-assert '/v0.5.0/Prepare-0.5.0-arm64.zip' in text
-assert '/v0.5.0/Prepare-0.5.0-portable.zip' in text
-assert 'https://gonisulaimann.github.io/Prepare/' not in text
+assert '/v0.5.0/Filecraft-0.5.0-arm64.zip' in text
+assert '/v0.5.0/Filecraft-0.5.0-portable.zip' in text
+assert 'https://filecraft.github.io/Filecraft/' not in text
 print('PASS',len(files),'pages,',count,'local references, canonical URLs and both release downloads')

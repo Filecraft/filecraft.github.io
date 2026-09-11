@@ -2,7 +2,7 @@ from pathlib import Path
 import html,re
 import markdown
 ROOT=Path(__file__).resolve().parents[1]
-BASE='https://gonisulaimann.github.io/'
+BASE='https://filecraft.github.io/'
 names=['ARCHITECTURE','RELEASING','VERIFICATION','VERIFICATION-0.4','PERFORMANCE','WEBSITE-QA','ACKNOWLEDGMENTS','DOMAIN','ROADMAP-100','VERIFICATION-0.5','STORE-FOUNDATIONS','GOVERNANCE','ENGINE-ARCHITECTURE','IDENTITY-RESEARCH','PRODUCT-ROADMAP','CLI','PDF-WORKFLOWS','DEPENDENCIES','DESIGN-SYSTEM','PLATFORM-QUALIFICATION','DESKTOP-SUITE']
 import runpy
 layout=runpy.run_path(str(ROOT/'scripts/build-product-pages.py'))['shell']
@@ -21,7 +21,7 @@ for name in names:
         path,sep,fragment=url.partition('#')
         base=Path(path).stem
         if base in names and path.endswith('.md'):url=base+'.html'+(sep+fragment if sep else '')
-        elif path.endswith('.md'):url='https://github.com/gonisulaimann/Prepare/blob/main/'+path.removeprefix('../')+(sep+fragment if sep else '')
+        elif path.endswith('.md'):url='https://github.com/Filecraft/Filecraft/blob/main/'+path.removeprefix('../')+(sep+fragment if sep else '')
         else:url='../'+url
         return 'href="'+url+'"'
     body=re.sub(r'href="([^"]+)"',target,body)

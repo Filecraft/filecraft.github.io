@@ -3,7 +3,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
-BASE='https://gonisulaimann.github.io/'
+BASE='https://filecraft.github.io/'
 class Canonical(HTMLParser):
     url=''
     def handle_starttag(self,tag,attrs):

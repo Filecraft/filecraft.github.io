@@ -1,4 +1,4 @@
-const appRoot=require('node:path').resolve(process.env.PREPARE_ROOT||require('node:path').join(__dirname,'../../Prepare'));
+const appRoot=require('node:path').resolve(process.env.PREPARE_ROOT||require('node:path').join(__dirname,'../../Filecraft'));
 const {chromium}=require(require('node:path').join(appRoot,'portable/node_modules/playwright'));
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),base=process.argv[2]||'http://127.0.0.1:8891';

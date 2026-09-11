@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 import json
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
-BASE='https://gonisulaimann.github.io/'
+BASE='https://filecraft.github.io/'
 class SEO(HTMLParser):
     def __init__(self):
         super().__init__();self.meta={};self.schemas=[];self.capture=False;self.buffer='';self.h1=0;self.images=[];self.scripts=[]

@@ -1,6 +1,6 @@
-# How I maintain Prepare
+# How I maintain Filecraft
 
-I'm Goni Sulaiman. I maintain Prepare independently and make the final release
+I'm Goni Sulaiman. I maintain Filecraft independently and make the final release
 and scope decisions. I welcome contributions and technical disagreement; I don't
 have a corporate committee, a foundation or a paid support team behind this repo.
 

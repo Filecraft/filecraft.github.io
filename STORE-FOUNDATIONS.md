@@ -20,7 +20,7 @@ strict zero-cloud workflow. OS/browser behavior is outside the engine's control.
 
 ## Mac App Store
 
-`macos/Prepare.entitlements` is a candidate sandbox profile, NOT enabled in the
+`macos/Filecraft.entitlements` is a candidate sandbox profile, NOT enabled in the
 GitHub release. Add an Xcode archive/export target, security-scoped URL lifecycle,
 sandbox integration tests, Apple distribution identity/provisioning, privacy
 manifest/API audit and App Store Connect listing before submission. Existing
