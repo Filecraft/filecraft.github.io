@@ -8,4 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - name: Validate pages and downloads
-        run: python3 scripts/check-site.py
+        run: |
+          python3 scripts/build-seo.py
+          git diff --exit-code -- robots.txt sitemap.xml
+          python3 scripts/check-site.py
+          python3 scripts/test-seo.py

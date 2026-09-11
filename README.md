@@ -13,7 +13,9 @@ After editing Markdown, regenerate the committed HTML documentation:
 python3 -m venv .site-env
 .site-env/bin/python -m pip install Markdown==3.7
 .site-env/bin/python scripts/build-docs.py
+python3 scripts/build-seo.py
 python3 scripts/check-site.py
+python3 scripts/test-seo.py
 ```
 
 The generator is development-only; the deployed site has no runtime dependencies,
