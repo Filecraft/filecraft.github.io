@@ -6,7 +6,7 @@ This repository publishes the landing page and documentation for
 [Prepare](https://github.com/gonisulaimann/Prepare). App code and download
 assets remain in that repository. Pages serves `main:/` with HTTPS.
 
-Edit `index.html`, `style.css`, `site.js`, or documentation Markdown files.
+Edit `index.html`, `style.css`, `platform.js`, or documentation Markdown files.
 After editing Markdown, regenerate the committed HTML documentation:
 
 ```sh
@@ -16,6 +16,7 @@ python3 -m venv .site-env
 python3 scripts/build-seo.py
 python3 scripts/check-site.py
 python3 scripts/test-seo.py
+node scripts/test-platform.cjs
 ```
 
 The generator is development-only; the deployed site has no runtime dependencies,

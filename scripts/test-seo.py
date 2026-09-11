@@ -30,13 +30,13 @@ for f in files:
     assert p.meta['og:url']==url
     assert 50<=len(p.meta['description'])<=180,(f,len(p.meta['description']))
     assert all('alt' in a for a in p.images)
-    assert all(a.get('src')=='site.js' or a.get('type')=='application/ld+json' for a in p.scripts)
+    assert all(a.get('src') in ['site.js','platform.js'] or a.get('type')=='application/ld+json' for a in p.scripts)
     if f.name=='index.html' and f.parent==ROOT:
         app=p.schemas[0];assert app['@type']=='SoftwareApplication'
         assert app['operatingSystem']=='macOS 14 or later (Apple Silicon)'
-        assert app['softwareVersion']=='0.4.0' and app['offers']['price']=='0'
+        assert app['softwareVersion']=='0.5.0' and app['offers']['price']=='0'
         assert app['url']==BASE and app['license'].endswith('/LICENSE')
-        assert app['downloadUrl'].endswith('/v0.4.0/Prepare-0.4.0-arm64.zip')
+        assert app['downloadUrl'].endswith('/v0.5.0/Prepare-0.5.0-arm64.zip')
         assert not any(k in app for k in ['aggregateRating','review'])
 robot=(ROOT/'robots.txt').read_text()
 assert 'User-agent: *' in robot and 'Allow: /' in robot
@@ -46,6 +46,6 @@ locations=[e.text or '' for e in sitemap.findall('.//{http://www.sitemaps.org/sc
 assert sorted(locations)==sorted(expected)
 assert len(locations)==len(set(locations))
 assert (ROOT/'assets/social-preview.png').is_file()
-assert sum((ROOT/p).stat().st_size for p in ['index.html','style.css','site.js'])<50_000
+assert sum((ROOT/p).stat().st_size for p in ['index.html','style.css','site.js','platform.js'])<50_000
 assert (ROOT/'site.js').stat().st_size<5_000
 print('PASS SEO:',len(files),'pages, unique sitemap URLs, metadata, truthful SoftwareApplication JSON-LD and page byte budgets')

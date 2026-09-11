@@ -1,0 +1,735 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Next 100 capabilities — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/ROADMAP-100.html"><meta name="description" content="Next 100 capabilities: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="Next 100 capabilities — Prepare docs"><meta property="og:description" content="Next 100 capabilities: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/ROADMAP-100.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Next 100 capabilities — Prepare docs"><meta name="twitter:description" content="Next 100 capabilities: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Next 100 capabilities</h1>
+<p>This is a prioritized architecture backlog, not a claim of 100 shipped features. No dates are promised. Implemented entries identify the actual platform; proposed entries require separate design, test and release gates. P0 denotes the current implemented slice; P1 is foundational, P2 follows after core reliability. Android delivery remains gated by real emulator/device results.</p>
+<p>Runtime budget: Mac executable &lt;2 MB/app files &lt;3 MB/archive &lt;1.5 MB; Portable expanded &lt;200 KB/archive &lt;100 KB; Android target APK &lt;1 MB. Toolchains and development tests are not shipped. Memory: bounded image dimensions, serial decode, bounded retries/previews; measured peak RSS is workload-specific, not a worst-case guarantee.</p>
+<p>Encryption is deferred until an audited implementation and license/size review exists. Near-white flattening is threshold whitening, not AI segmentation. Metadata stripping remains on; retention controls are proposed. Offline OCR/models are not bundled.</p>
+<p>Machine-readable acceptance criteria: <a href="https://github.com/gonisulaimann/Prepare/blob/main/roadmap/features.json">features.json</a>.</p>
+<h2>Geometry</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F001</td>
+<td>Arbitrary DPI ceiling</td>
+<td>P0</td>
+<td>portable-implemented</td>
+</tr>
+<tr>
+<td>F002</td>
+<td>Native 150/200/300 DPI ceiling</td>
+<td>P0</td>
+<td>mac-implemented</td>
+</tr>
+<tr>
+<td>F003</td>
+<td>Per-page paper size</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F004</td>
+<td>Per-page margins</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F005</td>
+<td>Auto portrait/landscape selection</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F006</td>
+<td>Manual crop rectangle</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F007</td>
+<td>Perspective quadrilateral correction</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F008</td>
+<td>Deskew angle estimation</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F009</td>
+<td>Bleed/safe-area overlay</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F010</td>
+<td>Two-up page imposition</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>Batch workflow</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F011</td>
+<td>Duplicate selected page</td>
+<td>P0</td>
+<td>mac-portable-implemented</td>
+</tr>
+<tr>
+<td>F012</td>
+<td>Move selected page to end</td>
+<td>P0</td>
+<td>mac-implemented</td>
+</tr>
+<tr>
+<td>F013</td>
+<td>Per-page removal</td>
+<td>P0</td>
+<td>portable-implemented</td>
+</tr>
+<tr>
+<td>F014</td>
+<td>Natural folder import</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F015</td>
+<td>Multiple independent output jobs</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F016</td>
+<td>Filename template expansion</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F017</td>
+<td>Watch-folder queue</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F018</td>
+<td>Drag-drop input zones</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F019</td>
+<td>Saved local job presets</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F020</td>
+<td>Command-line batch driver</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>Image cleanup</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F021</td>
+<td>Near-white threshold whitening</td>
+<td>P0</td>
+<td>portable-implemented</td>
+</tr>
+<tr>
+<td>F022</td>
+<td>Live threshold comparison</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F023</td>
+<td>Manual white balance</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F024</td>
+<td>Local contrast adjustment</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F025</td>
+<td>Adaptive monochrome threshold</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F026</td>
+<td>Denoising with bounded tile buffers</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F027</td>
+<td>Shadow compensation</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F028</td>
+<td>Background color picker</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F029</td>
+<td>Border cleanup mask</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F030</td>
+<td>Reversible per-page edit stack</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>Compression</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F031</td>
+<td>Per-page quality override</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F032</td>
+<td>Text/photo-aware profile suggestion</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F033</td>
+<td>Lossless PNG embedding for line art</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F034</td>
+<td>JPEG pass-through when privacy-safe</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F035</td>
+<td>Output byte contribution report</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F036</td>
+<td>Optimize only largest page</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F037</td>
+<td>Monochrome bilevel PDF encoding</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F038</td>
+<td>Target-byte binary search</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F039</td>
+<td>User quality-floor control</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F040</td>
+<td>Embedded image deduplication</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>Privacy and security</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F041</td>
+<td>PDF password encryption via audited platform/library</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F042</td>
+<td>Owner-permission controls with clear limitations</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F043</td>
+<td>Optional document title and author</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F044</td>
+<td>Metadata removal report</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F045</td>
+<td>Explicit metadata retention opt-in</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F046</td>
+<td>Redaction by raster destruction</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F047</td>
+<td>Redaction preview warning</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F048</td>
+<td>Private temporary-directory audit</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F049</td>
+<td>No-network build permission regression</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F050</td>
+<td>Dependency vulnerability inventory</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>Review and accessibility</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F051</td>
+<td>Keyboard shortcuts reference</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F052</td>
+<td>Screen-reader page reorder announcements</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F053</td>
+<td>High contrast native palette</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F054</td>
+<td>Reduced-motion parity</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F055</td>
+<td>Zoom-to-legibility region</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F056</td>
+<td>Page-by-page before/after difference view</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F057</td>
+<td>Printable proof sheet</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F058</td>
+<td>Keyboard-only save confirmation</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F059</td>
+<td>Localized error messages</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F060</td>
+<td>RTL layout validation</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>Input and capture</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F061</td>
+<td>Android share-sheet image intake</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F062</td>
+<td>Android camera capture through system intent</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F063</td>
+<td>Clipboard image paste</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F064</td>
+<td>HEIC portable format investigation</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F065</td>
+<td>TIFF multipage input</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F066</td>
+<td>WebP input validation</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F067</td>
+<td>AVIF input validation</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F068</td>
+<td>PDF input rasterization with explicit text loss</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F069</td>
+<td>Local scanner import on macOS</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F070</td>
+<td>Folder selection with file-count preflight</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>Output and interchange</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F071</td>
+<td>PDF/A investigation with independent validator</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F072</td>
+<td>PDF bookmarks from filenames</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F073</td>
+<td>Optional page-number stamps</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F074</td>
+<td>Visible watermark overlay</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F075</td>
+<td>Batch ZIP export</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F076</td>
+<td>Split output by page count</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F077</td>
+<td>Split output by byte limit</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F078</td>
+<td>Sidecar job manifest export</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F079</td>
+<td>Open output in system viewer</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F080</td>
+<td>Android output share sheet</td>
+<td>P2</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>Platform delivery</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F081</td>
+<td>Android native SAF to PdfDocument workflow</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F082</td>
+<td>Android process-death recovery policy</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F083</td>
+<td>Android low-memory-device stress suite</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F084</td>
+<td>Mac sandbox/security-scoped URL support</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F085</td>
+<td>Mac Developer ID notarization</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F086</td>
+<td>Windows native lightweight host feasibility</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F087</td>
+<td>Microsoft Store packaging feasibility</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F088</td>
+<td>Linux desktop launcher and package metadata</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F089</td>
+<td>ARM Linux execution matrix</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F090</td>
+<td>Offline update checksum verifier</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>Quality and community</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Feature</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F091</td>
+<td>Public synthetic adversarial corpus</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F092</td>
+<td>EXIF orientation eight-way golden fixtures</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F093</td>
+<td>Unicode filename corpus</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F094</td>
+<td>Fuzz PNG/JPEG header parsers</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F095</td>
+<td>Property-based layout checks</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F096</td>
+<td>Cancellation race injection</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F097</td>
+<td>Long-run repeated-session memory baseline</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F098</td>
+<td>Reproducible archive provenance</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F099</td>
+<td>Translation contribution pipeline</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+<tr>
+<td>F100</td>
+<td>Cross-platform feature parity dashboard</td>
+<td>P1</td>
+<td>proposed</td>
+</tr>
+</tbody>
+</table><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>

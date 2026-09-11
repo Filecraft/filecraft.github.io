@@ -13,3 +13,4 @@ jobs:
           git diff --exit-code -- robots.txt sitemap.xml
           python3 scripts/check-site.py
           python3 scripts/test-seo.py
+          node scripts/test-platform.cjs

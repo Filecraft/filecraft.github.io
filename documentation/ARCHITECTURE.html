@@ -1,4 +1,17 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Architecture — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/ARCHITECTURE.html"><meta name="description" content="Architecture: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="Architecture — Prepare docs"><meta property="og:description" content="Architecture: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/ARCHITECTURE.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Architecture — Prepare docs"><meta name="twitter:description" content="Architecture: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Architecture</h1>
+<h2>Version 0.5 platform boundaries</h2>
+<p>Mac uses SwiftUI / PDFKit / CoreGraphics with no package dependencies.
+Portable is an offline file-open HTML/CSS/JavaScript companion using browser
+Canvas and a small raster PDF writer; the browser is not bundled. Windows and
+Linux do not have native EXE/ELF binaries. Android is a separate Java/framework
+engine using ImageDecoder, PdfDocument and Storage Access Framework; it has no
+network permission. The unsigned APK is developer material, not a consumer app.</p>
+<p>Geometry and byte-budget concepts are shared, not an identical binary engine.
+Platform codecs, page defaults, cancellation latency and previews differ. Each
+platform has separate rendered-output, input-bound and packaging tests; do not
+infer parity from a roadmap item. See <a href="https://github.com/gonisulaimann/Prepare/blob/main/android/README.md">Android scope</a>,
+<a href="https://github.com/gonisulaimann/Prepare/blob/main/portable/README.txt">Portable scope</a> and <a href="VERIFICATION-0.5.html">v0.5 evidence</a>.</p>
+<h2>Earlier native architecture notes</h2>
 <pre><code class="language-text">SwiftUI workspace (main actor)
   ordered pages + rotation + paper + margin + byte limit
                  │ immutable settings snapshot

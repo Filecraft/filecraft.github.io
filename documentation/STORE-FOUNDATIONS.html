@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Store submission foundations — not submissions — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/STORE-FOUNDATIONS.html"><meta name="description" content="Store submission foundations — not submissions: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="Store submission foundations — not submissions — Prepare docs"><meta property="og:description" content="Store submission foundations — not submissions: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/STORE-FOUNDATIONS.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Store submission foundations — not submissions — Prepare docs"><meta name="twitter:description" content="Store submission foundations — not submissions: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Store submission foundations — not submissions</h1>
+<p>The downloadable builds are not store-certified. Source is inspectable under
+Hippocratic License 3.0 core; its ethical-use restrictions may exclude some
+free-software repositories. Do not replace the license with MIT to pass a check.</p>
+<h2>Shared metadata</h2>
+<p>See <code>listing.json</code>: truthful base listing, local-only privacy, owner identity,
+source/license/support URLs and explicit platform status. Before submission:
+provide a monitored support contact, screenshots from the actual current app,
+accessibility notes, age/content rating, region/trader/tax information as required,
+and owner-controlled signing credentials. Review store rules again at submission.
+No billing, accounts, ads, analytics or conversion networking are designed in.
+System pickers can expose cloud-backed providers: choose local storage for a
+strict zero-cloud workflow. OS/browser behavior is outside the engine's control.</p>
+<h2>Mac App Store</h2>
+<p><code>macos/Prepare.entitlements</code> is a candidate sandbox profile, NOT enabled in the
+GitHub release. Add an Xcode archive/export target, security-scoped URL lifecycle,
+sandbox integration tests, Apple distribution identity/provisioning, privacy
+manifest/API audit and App Store Connect listing before submission. Existing
+ad-hoc signature cannot substitute for this. Do not grant network entitlements.
+https://developer.apple.com/documentation/xcode/configuring-the-macos-app-sandbox</p>
+<h2>Microsoft Store</h2>
+<p>The current Windows artifact is a portable browser bundle, not EXE/MSIX. A future
+native system-WebView host needs explicit local origin/CSP/navigation limits,
+file-picker integration and end-to-end offline tests. Do not simply submit a
+ZIP as a Windows executable. Reserve identity in Partner Center, choose a supported
+packaging model, then produce and test signed MSIX/App Installer or the approved
+unpackaged flow. No installable MSIX is claimed by these foundations.
+https://learn.microsoft.com/en-us/windows/apps/publish/</p>
+<h2>Linux package managers</h2>
+<p><code>linux/org.prepareapp.prepare.desktop</code> provides metadata for a future installed
+launcher. It is intentionally not installed today: no <code>prepare-portable</code> executable
+is packaged. Define local browser invocation and sandbox policy, source archive
+hash, reproducible package builds, distro license review and installation/removal
+tests before shipping DEB/RPM/Flatpak. Bundling an entire browser would violate
+our download budget; investigate system-browser integration first.
+https://docs.flatpak.org/en/latest/manifests.html</p>
+<h2>Google Play</h2>
+<p>The Android module owns its build manifest and test configuration. Before Play:
+owner-controlled long-lived upload key, Play App Signing enrollment, production
+application ID review, Android App Bundle pipeline, current target API compliance,
+data safety form, public privacy policy, accessibility and phone/tablet tests,
+store graphics and any account-specific closed-testing requirement. Test-signed
+or unsigned engineering artifacts are not Play submissions. Never reuse a CI
+throwaway signing key for production updates.
+https://developer.android.com/google/play/requirements/target-sdk
+https://developer.android.com/studio/publish/app-signing</p>
+<h2>Release gate</h2>
+<p>A config file is not store readiness. No submission proceeds until actual builds,
+platform regression tests, install/update/uninstall checks and license/signing
+reviews pass. Account enrollment, legal attestations and key ownership remain
+maintainer tasks; no credentials or legal declarations have been invented.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>
