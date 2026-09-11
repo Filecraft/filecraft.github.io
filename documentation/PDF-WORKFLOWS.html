@@ -1,0 +1,125 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prepare PDF core — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/PDF-WORKFLOWS.html"><meta name="description" content="Prepare PDF core: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="Prepare PDF core — Prepare docs"><meta property="og:description" content="Prepare PDF core: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/PDF-WORKFLOWS.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Prepare PDF core — Prepare docs"><meta name="twitter:description" content="Prepare PDF core: Prepare documentation, local processing and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Prepare PDF core</h1>
+<p>Dependency-local Node 22+ and browser PDF page operations. No runtime npm install,
+network access, server, shell execution, or document upload. Project code retains
+the repository's <strong>Hippocratic License 3.0</strong> (<code>../LICENSE</code>). Vendor code retains
+its original licenses; see <a href="https://github.com/gonisulaimann/Prepare/blob/main/vendor/README.md">vendor notes</a>.</p>
+<h2>Shared API (stable paths for the browser workbench)</h2>
+<p>Load <code>pdf/vendor/pdf-lib.min.js</code>, then <code>pdf/document.js</code>: global <strong>PreparePDF</strong>.
+CommonJS: <code>const PreparePDF = require('./pdf/document.js')</code>.
+The host must execute browser operations in a dedicated Worker and terminate it
+on cancellation/timeout. A Blob worker can concatenate these two local files for
+<code>file://</code> support. The core does not create workers or implement cancellation.
+Do not execute untrusted PDF operations on a browser UI thread or main Node thread.</p>
+<pre><code class="language-js">const info = await PreparePDF.inspect(bytes); // Uint8Array or Node Buffer
+// {pageCount, pages:[{width,height,rotation}], byteLength, warnings}
+const output = await PreparePDF.transform([firstPDF, secondPDF], [
+  {source:1, page:0, rotation:90},
+  {source:0, page:2, rotation:0},
+  {source:0, page:2, rotation:-90}, // duplicate is intentional
+], {maxBytes: 10 * 1024 * 1024});
+// output is Uint8Array, never a download or filesystem write
+</code></pre>
+<ul>
+<li><code>source</code> and <code>page</code> are <strong>zero-based</strong> integer indices. Every entry must include
+  <code>rotation</code>, an added clockwise integer multiple of 90. Order and duplicates are
+  preserved. Rotation is normalized to 0/90/180/270, added to inherited rotation.</li>
+<li>Width and height are MediaBox dimensions in PDF points, before rotation. Cropped
+  appearance may differ. Output is reloaded and checked against source-derived
+  page count, dimensions, rotation, and all five page boxes, including origins.</li>
+<li>Errors reject with <code>Error.code</code>: <code>INVALID_PDF</code>, <code>ENCRYPTED</code>,
+  <code>UNSUPPORTED_FEATURE</code>, <code>INVALID_PLAN</code>, <code>LIMIT</code>, <code>OUTPUT_LIMIT</code>,
+  <code>OUTPUT_VALIDATION</code>. Browser hosts should catch unexpected parser/resource errors
+  too and report failure, never infer a valid result from lack of a message.</li>
+<li><code>maxBytes</code> is optional; when provided it must be an integer from 1 to 52,428,800.
+  The browser should set its explicit selected budget. Default/hard output cap is
+  50 MiB. This is <strong>not compression</strong>: an over-budget result is rejected.</li>
+<li><code>await PreparePDF.transformVerified(inputs, plan, options)</code> returns <code>{bytes,info}</code>
+  from the same validated output reload, including outputs above the input cap.</li>
+<li><code>PreparePDF.limits</code> and <code>PreparePDF.version</code> are read-only exported constants.</li>
+</ul>
+<h3>Bounds</h3>
+<p>1–10 input PDFs; at most 20 MiB (20,971,520 bytes) per input and 50 MiB combined;
+1–100 source pages in total; 1–100 output pages. Empty plans, unknown entry keys,
+fractional/negative/out-of-range indices, and rotations not divisible by 90 fail.
+Each inspect call is capped at 20 MiB. A merged output may exceed 20 MiB, up to the
+50 MiB output cap; internal reload verification uses the output limit, but that
+large output cannot be supplied as a new input/inspect call.</p>
+<h2>CLI</h2>
+<pre><code class="language-sh">node pdf/cli.cjs --help
+node pdf/cli.cjs --version
+node pdf/cli.cjs inspect 'source.pdf'
+node pdf/cli.cjs transform --output merged.pdf first.pdf second.pdf
+node pdf/cli.cjs transform --output selected.pdf --pages 3,1-2,3 --rotate 90 --max-bytes 2000000 source.pdf
+</code></pre>
+<p>CLI pages are <strong>one-based</strong>, unlike the API. Ascending ranges and duplicates are
+supported. <code>--pages</code> requires exactly one input. Omit it to concatenate all input
+pages in input order. Use <code>--</code> before dash-leading input paths.</p>
+<p>Every outcome is one JSON object on stdout. Success uses <code>{ok:true,command,result}</code>
+and includes <code>output</code> for transforms. Errors use <code>{ok:false,error:{code,message}}</code>.
+Exit codes: <strong>0</strong> success, <strong>2</strong> usage, <strong>3</strong> filesystem, <strong>4</strong> PDF/plan/bounds,
+<strong>5</strong> timeout/worker failure. <code>--help</code> and <code>--version</code> also return JSON.</p>
+<p>Inputs must be regular files. Final-component symlinks, directories, devices and
+FIFOs are rejected; parent-directory symlinks are allowed. lstat/open/fstat checks,
+no-follow/nonblocking flags where available, bounded reads and post-read stat
+checks reduce filesystem races, but are not a hostile-filesystem sandbox. Output
+is opened exclusively (<code>wx</code>, mode 0600) only after successful validation. Existing
+files, including original inputs, hardlinks and symlinks, are never overwritten.
+No source is opened for writing. An I/O failure after creating a new output can
+leave an incomplete new file; it is reported as failure, never success. Keep
+outputs in trusted directories; hostile parent-directory replacement is not covered.</p>
+<p>PDF reads/parsing/transforms run inside a Worker with a <strong>30-second timeout</strong>,
+<strong>256 MiB V8 old-generation heap</strong>, 32 MiB young-generation and 4 MiB stack limits.
+Before parsing, decoder allocation requests are capped at 32 MiB per stream and
+64 MiB cumulative capacity growth per API job. XRef widths/counts are validated
+before stream construction. See <a href="https://github.com/gonisulaimann/Prepare/blob/main/THIRD-PARTY.md">guard implementation and scope</a>.
+Jobs sharing one vendor instance are serialized for reliable budget accounting.
+This is not a 256 MiB total-process/RSS limit: native decompression buffers and
+ArrayBuffers are outside V8 heap quotas, and workers share a process. Complex PDFs
+can exhaust process/OS resources. For hostile documents use OS/container memory
+and CPU limits plus filesystem/network isolation. CLI filesystem writes are not
+part of the PDF worker's timeout; network filesystems can block OS operations.</p>
+<h2>Supported scope and important non-guarantees</h2>
+<p>Supported: ordinary PDF 1.0–1.7 pages; merge, reorder, duplicate, extract and rotate;
+preserved text/vector/image content. Headers must start at byte zero, the final
+startxref must point to a table/object, and a terminal %%EOF must be present.
+Truncated/obviously malformed PDFs fail. pdf-lib is a repairing, complex parser:
+passing these checks is <strong>not</strong> complete conformance validation or a guarantee
+that every malformed file will be identified.</p>
+<p>Rejected conservatively across parsed object dictionaries: encryption (no password
+or ignore-encryption bypass), AcroForm/XFA forms, signatures/permissions/ByteRange,
+nonempty annotations (including links), document/page actions, JavaScript,
+attachments/embedded files, associated files, portfolios, rich media, common
+external/action types. Empty annotation arrays are allowed because pdf-lib creates
+them on normal text pages. This may reject otherwise harmless PDFs and is not a
+complete detector of all active or malicious PDF features.</p>
+<p><strong>Not a sanitizer, redactor, malware scanner, accessibility checker, OCR engine,
+renderer, flattening tool, compressor, PDF/A validator or signature-preserving
+editor.</strong> Embedded page resources/content and some metadata may survive copying;
+merged outputs do not promise preservation of document-level metadata, bookmarks,
+logical reading order, tags, outlines or catalog features. Removing an output page
+is not a promise that its sensitive resources are absent. No privacy scrub is
+performed. Image/text encodings and content streams are copied, not semantically
+validated. A parser pass must not be represented as readable, safe, or accepted by
+a submission portal. <strong>Reopen every result in an independent viewer, visually
+check every page, then test it in the destination workflow.</strong></p>
+<h2>Verification and standalone source package</h2>
+<pre><code class="language-sh">node --test pdf/test/*.test.cjs
+python3 -m unittest discover -s pdf/test -p '*_test.py'
+python3 pdf/package.py
+</code></pre>
+<p>Node tests require no install. Optional Python PDFium checks run only when
+<code>pypdfium2</code> is installed in the developer environment; it is not bundled or a
+production dependency. Tests use generated real PDFs with text/asymmetric shapes,
+forms, encryption markers, malicious feature dictionaries, malformed bytes,
+shifted/inherited geometry, order/duplicates, size/path bounds and original hashes.
+PDFium tests independently verify rendered geometry, retained text and nonblank
+renders. They do not certify arbitrary user files.</p>
+<p><code>dist/prepare-pdf-source.zip</code> is deterministic, below 2 MB, contains <code>LICENSE</code>
+and this entire standalone <code>pdf/</code> tree including vendor/licenses, CLI, worker,
+API, docs and tests. Node modules, build caches and dist files are excluded.
+The companion <code>.sha256</code> identifies the built bytes. Extract then run the same
+commands from the extracted root. Python is needed only to build the ZIP.</p>
+<h2>Physical page measurements</h2>
+<p>Widths/heights are visible CropBox intersected with MediaBox, scaled by
+UserUnit, in physical points before separately reported rotation. Original
+page boxes are also preserved and compared after export.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>

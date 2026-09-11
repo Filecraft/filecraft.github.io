@@ -13,7 +13,11 @@ class Page(HTMLParser):
             if u:self.links.append(u)
         if tag=='link' and a.get('rel')=='canonical':self.canonical=a['href']
 files=[ROOT/'index.html',*sorted((ROOT/'documentation').glob('*.html')),*sorted(p for p in ROOT.glob('*/index.html') if p.parent.name!='documentation')]
-assert len(files)==35
+import xml.etree.ElementTree as ET
+urls={n.text for n in ET.parse(ROOT/'sitemap.xml').findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')}
+expected={'https://gonisulaimann.github.io/'+str(f.relative_to(ROOT)).removesuffix('index.html') for f in files}
+assert expected==urls, 'Sitemap must enumerate every public content page exactly'
+assert len(files)>=35
 count=0
 for f in files:
     p=Page();p.feed(f.read_text());expected='https://gonisulaimann.github.io/'+str(f.relative_to(ROOT)).removesuffix('index.html');assert p.canonical==expected,(f,p.canonical,expected)
