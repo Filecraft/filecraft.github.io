@@ -1,13 +1,17 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Release checklist — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/RELEASING.html"><meta property="og:url" content="https://gonisulaimann.github.io/documentation/RELEASING.html"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Release checklist</h1>
 <p>Releases are deliberate maintainer actions, not automatic publications on push.
-The macOS CI workflow checks source and packaging. GitHub Pages serves <code>docs/</code>
-from <code>main</code>; there is no JavaScript build toolchain or website dependency tree.</p>
+The macOS CI workflow checks source and packaging. The official website is
+https://gonisulaimann.github.io/ and publishes <code>main:/</code> from the dedicated
+<code>gonisulaimann/gonisulaimann.github.io</code> repository. This app repository keeps
+a legacy landing-page redirect; do not edit its old assets to update the live site.</p>
 <ol>
 <li>Update the version in <code>scripts/package.py</code>, README, CHANGELOG and website.</li>
 <li>Run <code>swift run PrepareChecks</code>, release checks, warnings-as-errors and stress
    checks. Record machine, compiler, fixture workload and real measured values.</li>
-<li>Run <code>python3 scripts/check-site.py</code>, then preview <code>docs/</code> at narrow and wide
-   widths. Check keyboard focus, anchors, download URLs and reduced motion.
+<li>Run the app repository redirect check (<code>python3 scripts/check-site.py</code>).
+   In the dedicated site repository, regenerate HTML docs and run its site
+   checker. Preview the site at narrow and wide widths; check keyboard focus,
+   anchors, download URLs and reduced motion.
    Run <code>node scripts/test-site.cjs</code> and <code>python3 scripts/test_release_budget.py</code>.</li>
 <li><code>bash scripts/package.sh</code>; inspect the bundle version and arm64 architecture.
    Packaging rejects a binary ≥2,000,000 bytes, app ≥3,000,000 bytes, or ZIP
