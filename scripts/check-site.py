@@ -12,8 +12,8 @@ class Page(HTMLParser):
             u=a.get('href',a.get('src'))
             if u:self.links.append(u)
         if tag=='link' and a.get('rel')=='canonical':self.canonical=a['href']
-files=[ROOT/'index.html',*sorted((ROOT/'documentation').glob('*.html'))]
-assert len(files)==14
+files=[ROOT/'index.html',*sorted((ROOT/'documentation').glob('*.html')),*sorted(p for p in ROOT.glob('*/index.html') if p.parent.name!='documentation')]
+assert len(files)==35
 count=0
 for f in files:
     p=Page();p.feed(f.read_text());expected='https://gonisulaimann.github.io/'+str(f.relative_to(ROOT)).removesuffix('index.html');assert p.canonical==expected,(f,p.canonical,expected)
@@ -21,7 +21,7 @@ for f in files:
         parts=urlsplit(u)
         if parts.scheme:assert parts.scheme=='https';continue
         if parts.path:
-            target=f.parent/parts.path
+            target=(ROOT/parts.path.lstrip('/')) if parts.path.startswith('/') else f.parent/parts.path
             assert target.is_file() or (target/'index.html').is_file(),(f,u)
         elif parts.fragment:assert parts.fragment in p.ids,(f,u)
         count+=1

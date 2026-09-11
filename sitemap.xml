@@ -10,13 +10,25 @@
     <loc>https://gonisulaimann.github.io/documentation/ARCHITECTURE.html</loc>
   </url>
   <url>
+    <loc>https://gonisulaimann.github.io/documentation/CLI.html</loc>
+  </url>
+  <url>
     <loc>https://gonisulaimann.github.io/documentation/DOMAIN.html</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/documentation/ENGINE-ARCHITECTURE.html</loc>
   </url>
   <url>
     <loc>https://gonisulaimann.github.io/documentation/GOVERNANCE.html</loc>
   </url>
   <url>
+    <loc>https://gonisulaimann.github.io/documentation/IDENTITY-RESEARCH.html</loc>
+  </url>
+  <url>
     <loc>https://gonisulaimann.github.io/documentation/PERFORMANCE.html</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/documentation/PRODUCT-ROADMAP.html</loc>
   </url>
   <url>
     <loc>https://gonisulaimann.github.io/documentation/RELEASING.html</loc>
@@ -41,5 +53,56 @@
   </url>
   <url>
     <loc>https://gonisulaimann.github.io/documentation/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/about/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/accessibility/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/changelog/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/community/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/contact/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/contributing/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/download/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/faq/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/features/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/getting-started/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/licensing/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/platforms/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/privacy/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/releases/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/roadmap/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/security/</loc>
+  </url>
+  <url>
+    <loc>https://gonisulaimann.github.io/terms/</loc>
   </url>
 </urlset>

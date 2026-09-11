@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>From documents to readiness — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/PRODUCT-ROADMAP.html"><meta name="description" content="From documents to readiness: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="From documents to readiness — Prepare docs"><meta property="og:description" content="From documents to readiness: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/PRODUCT-ROADMAP.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="From documents to readiness — Prepare docs"><meta name="twitter:description" content="From documents to readiness: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>From documents to readiness</h1>
+<p>This is a staged product program, not a promise that all capabilities exist.
+The detailed 100-entry backlog remains in ROADMAP-100.md; stages below organize
+future investment by dependencies and evidence, not an arbitrary feature count.</p>
+<h2>1. Shared foundation — in progress</h2>
+<p>Shipped source: UI-independent document model, tri-state rules, versioned profiles,
+strict JSON validation, bounded undo/redo, cancellable model workflows, bounded
+header inspector and hash-streaming CLI. Portable uses shared page operations
+and rules. Next gate: one conformance corpus across native and web adapters, safe
+project persistence, storage quotas, job isolation and localized UI catalogs.</p>
+<h2>2. Real document evidence</h2>
+<p>Adopt a maintained PDF parser/renderer after license, vulnerability, binary-size
+and sandbox experiments. Acceptance: malformed/encrypted/signed/object-stream
+corpus, independently rendered output, no regex page counting, bounded parser
+process termination. Add embedded-resource and metadata reports before editing.
+Investigate platform OCR and optional separately downloaded local language packs;
+measure quality across languages and handwriting without claiming certainty.</p>
+<h2>3. Constraint-directed preparation</h2>
+<p>Version rules and evidence provenance; add minimum DPI, password policy, metadata
+and filename requirements only when adapters can verify them. Search candidate
+transformations under time/quality budgets, explain infeasible combinations and
+re-evaluate final bytes independently. Profiles remain offline and data-only.
+Never label a profile institution-verified without provenance and review.</p>
+<h2>4. Reusable professional workflows</h2>
+<p>Implement real merge/split/extract, image conversion, deskew, blank-page detection,
+metadata management and visual comparison behind reviewed adapters. Then add
+batch manifests, resumable jobs, deterministic conflict handling and atomic local
+exports. Golden fixtures must verify actual content and visual regressions.
+Workflow dry runs remain distinct from rendered/exported output.</p>
+<h2>5. First-class platform products</h2>
+<p>Desktop: choose thin native shells and reusable codec bindings; benchmark cold
+start, peak memory, packaging and accessibility on x64/ARM64 hardware. A browser
+ZIP is not a native Windows/Linux app. Start with one justified Linux format.
+Mobile: harden Android SAF, signed release process, TalkBack, memory pressure and
+physical-device testing; prototype iOS/iPadOS with Files and VoiceOver before
+claiming support. No store submissions or enrollment spending without owner setup.
+Web: share engine behavior while preserving CSP and no-network document handling.</p>
+<h2>6. Extensible ecosystem</h2>
+<p>Stable CLI exit/schema contract; typed adapter capabilities; allowlisted plugins;
+profile import provenance; threat-modeled extension isolation. No marketplace or
+remote code execution by default. Optional intelligence can suggest actions but
+cannot override deterministic validation or upload documents implicitly.</p>
+<h2>Release gate for every stage</h2>
+<p>Unit + hostile-input corpus + failure/cancellation tests + rendered/structural
+checks + accessibility basics + actual platform CI + downloaded artifact/hash
+verification. Release labels must reflect qualification. Record performance
+hardware and fixture dimensions; never generalize a small benchmark to all files.</p>
+<h2>Differentiation</h2>
+<p>Acrobat and PDF Expert emphasize broad editing; PDF24 and Stirling PDF expose many
+tools; OCRmyPDF adds searchable layers and Ghostscript/ImageMagick enable expert
+pipelines. The opportunity here is a transparent readiness contract: requirements,
+measured evidence, reversible remedies and verified output, working locally.
+This is a product hypothesis, not a claim competitors lack every such capability.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>

@@ -13,7 +13,7 @@ ET.register_namespace('','http://www.sitemaps.org/schemas/sitemap/0.9')
 ns='{http://www.sitemaps.org/schemas/sitemap/0.9}'
 sitemap=ET.Element(ns+'urlset')
 urls=[]
-for file in [ROOT/'index.html',*sorted((ROOT/'documentation').glob('*.html'))]:
+for file in [ROOT/'index.html',*sorted((ROOT/'documentation').glob('*.html')),*sorted(p for p in ROOT.glob('*/index.html') if p.parent.name!='documentation')]:
     page=Canonical();page.feed(file.read_text());assert page.url.startswith(BASE)
     assert page.url not in urls;urls.append(page.url)
     ET.SubElement(ET.SubElement(sitemap,ns+'url'),ns+'loc').text=page.url

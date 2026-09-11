@@ -20,7 +20,7 @@ class SEO(HTMLParser):
         if self.capture:self.buffer+=data
     def handle_endtag(self,tag):
         if tag=='script' and self.capture:self.schemas.append(json.loads(self.buffer));self.capture=False
-files=[ROOT/'index.html',*sorted((ROOT/'documentation').glob('*.html'))]
+files=[ROOT/'index.html',*sorted((ROOT/'documentation').glob('*.html')),*sorted(p for p in ROOT.glob('*/index.html') if p.parent.name!='documentation')]
 expected=[]
 for f in files:
     p=SEO();p.feed(f.read_text());url=BASE+str(f.relative_to(ROOT)).removesuffix('index.html');expected.append(url)
@@ -30,7 +30,7 @@ for f in files:
     assert p.meta['og:url']==url
     assert 50<=len(p.meta['description'])<=180,(f,len(p.meta['description']))
     assert all('alt' in a for a in p.images)
-    assert all(a.get('src') in ['site.js','platform.js'] or a.get('type')=='application/ld+json' for a in p.scripts)
+    assert all(a.get('src') in ['site.js','platform.js','/platform.js'] or a.get('type')=='application/ld+json' for a in p.scripts)
     if f.name=='index.html' and f.parent==ROOT:
         app=p.schemas[0];assert app['@type']=='SoftwareApplication'
         assert app['operatingSystem']=='macOS 14 or later (Apple Silicon)'

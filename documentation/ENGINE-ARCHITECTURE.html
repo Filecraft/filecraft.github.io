@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Local document engine: architecture direction — Prepare docs</title><link rel="canonical" href="https://gonisulaimann.github.io/documentation/ENGINE-ARCHITECTURE.html"><meta name="description" content="Local document engine: architecture direction: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:type" content="article"><meta property="og:title" content="Local document engine: architecture direction — Prepare docs"><meta property="og:description" content="Local document engine: architecture direction: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta property="og:url" content="https://gonisulaimann.github.io/documentation/ENGINE-ARCHITECTURE.html"><meta property="og:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Local document engine: architecture direction — Prepare docs"><meta name="twitter:description" content="Local document engine: architecture direction: Prepare image-to-PDF documentation, local processing details and release evidence. Versioned reports retain their original scope."><meta name="twitter:image" content="https://gonisulaimann.github.io/assets/social-preview.png"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="docs.css"></head><body><main class="doc"><nav><a href="../">Prepare</a> / <a href="./">Documentation</a></nav><h1>Local document engine: architecture direction</h1>
+<h2>Decision</h2>
+<p>Separate readiness and workflow semantics from codec implementation. Start with a
+small dependency-free JavaScript engine that runs identically in Node and a
+browser. This delivers shared rules to the already useful Portable UI and a real
+CLI without bundling another runtime. Node is a CLI prerequisite, not hidden in
+the downloadable archive. Native Swift/Java converters remain maintained adapters;
+this release does not falsely claim they already execute the shared JS engine.</p>
+<p>For future native hosts, evaluate a small Rust/C ABI core with the same versioned
+conformance fixtures before replacing these rules. Do not add a JS interpreter
+to a 25 KB Android application merely for architectural symmetry. Benchmark an
+actual codec/parser workload before selecting Rust, C++, WASM or a PDF library.
+The product must not accumulate independent interpretations of profile rules.</p>
+<h2>Layers</h2>
+<p>UI / CLI / automation
+      -&gt; profile + document evidence + declarative operations
+      -&gt; readiness evaluation and immutable job plan
+      -&gt; bounded platform codec adapter
+      -&gt; candidate output
+      -&gt; independent evidence collection and validation
+      -&gt; exclusive or provider-mediated export</p>
+<p>Evidence has provenance: header inspection, decoded image, parsed PDF, rendered
+page, user declaration. Header magic is not structural validity. Never promote
+unknown into pass, nor treat a JSON-supplied claim as independently verified.
+A readiness result is scoped to its profile and actual checks, not general legal
+acceptance or readability certification.</p>
+<h2>Document and history</h2>
+<p>Assets identify immutable originals; pages refer to assets and transformations.
+Order/rotation/duplicate operations create new manifests. Keep large bytes outside
+history and bound both history depth and pages. Materialized output is disposable
+until verified. Persist projects only by explicit request; avoid recording full
+paths in ordinary diagnostics. Version profile/workflow/manifest schemas and fail
+closed on unsupported fields or operations. No executable profile scripts.</p>
+<h2>Jobs and resources</h2>
+<p>Job IDs scope cancellation, progress and outputs. Limit active decodes, input
+bytes, decoded pixels, page count, temporary bytes and history independently.
+Native codec calls may not be interruptible; cancellation must be checked before
+and after them. Do not race a still-running job against UI edits. A settings or
+page change invalidates the previously prepared result.</p>
+<p>Treat jobs as isolated state machines: queued, inspecting, processing, verifying,
+ready, exporting, cancelled or failed. Export is not successful until the final
+write and available readback checks succeed. Provider-based readback can fail;
+say so instead of claiming an integrity guarantee.</p>
+<h2>Extension and localization boundary</h2>
+<p>Plugins begin as allowlisted adapter interfaces, not downloaded arbitrary code.
+Each adapter declares formats, supported facts, capabilities and resource limits.
+Untrusted parsing should eventually run in a killable worker/process sandbox;
+a JS module boundary alone is not a security sandbox. Unsupported PDF/OCR/forms/
+PDF-A/encryption facts stay unknown until a qualified adapter exists.</p>
+<p>Rule identifiers and structured values belong in the engine; translated messages
+belong in UI catalogs. English is the first catalog. Profile names are user data,
+not executable templates. CLI machine output uses stable codes and no ANSI prose.</p>
+<h2>Privacy and filesystem</h2>
+<p>No engine network API, telemetry or account. Browser CSP blocks outbound connects;
+Android has no INTERNET permission. Mac currently lacks OS sandbox enforcement.
+OS sync/cloud providers, website hosting and extension permissions are external
+boundaries, explicitly documented. Never promise forensic deletion: snapshots,
+swap and journaling may retain bytes. Preserve originals; exclusive create for CLI
+outputs, private temporary directories, bounded reads and no implicit recursive
+folder traversal. Archive import must validate paths before extracting anything.</p>
+<h2>Qualified scope</h2>
+<p>The existing raster-PDF converters stay stable. The shared engine first powers
+profile checks, manifests and CLI evidence; arbitrary PDF editing, OCR, encryption,
+PDF/A and intelligent content classification require additional reviewed adapters.
+Mobile quality requires real device, accessibility, memory-pressure and provider
+qualification. Compiling a shell does not establish platform support.</p><footer><a href="https://github.com/gonisulaimann/Prepare">Application source and releases</a></footer></main></body></html>
