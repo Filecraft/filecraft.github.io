@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Filecraft identity migration — Filecraft</title><meta name="description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><link rel="canonical" href="https://filecraft.github.io/documentation/MIGRATION.html"><meta property="og:type" content="website"><meta property="og:title" content="Filecraft identity migration — Filecraft"><meta property="og:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta property="og:url" content="https://filecraft.github.io/documentation/MIGRATION.html"><meta property="og:image" content="https://filecraft.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Filecraft identity migration — Filecraft"><meta name="twitter:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta name="twitter:image" content="https://filecraft.github.io/assets/social-preview.png"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Filecraft", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, Linux, macOS; browser workspace", "url": "https://filecraft.github.io/", "license": "https://github.com/Filecraft/Filecraft/blob/main/LICENSE"}</script><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Filecraft home"><span class="brand-mark" aria-hidden="true">F</span>Filecraft<span class="brand-note">LOCAL BY DESIGN</span></a><nav aria-label="Primary"><a class="" href="/workflows/">Workflows</a><a class="" href="/download/">Download</a><a class="" href="/documentation/">Documentation</a><a class="nav-action" href="/workspace/">Open workspace ↗</a></nav></header><main id="main" tabindex="-1"><div class="page-intro"><p class="eyebrow">Filecraft / Field guide</p><h1>Filecraft identity migration</h1><p class="deck">Technical documentation and evidence. Older versioned reports retain their original scope.</p></div><p class="fine">Versioned reports retain historical scope and licenses. Current capabilities and license: <a href="/features/">features</a> · <a href="/licensing/">licensing</a>.</p><article class="technical"><p>Filecraft continues Prepare. The repository was transferred, not copied: Git history,
+issues and all nine existing releases retain their identities. Historical assets
+keep their original names and licenses. Current source remains Apache-2.0.</p>
+<p>Canonical repository: https://github.com/Filecraft/Filecraft
+Canonical site: https://filecraft.github.io/</p>
+<p>The protected personal website repository is not edited or redirected. The new
+organization site is a separate repository. GitHub redirects the old project URL;
+clients should update remotes to git@github.com:Filecraft/Filecraft.git.</p>
+<h2>Compatibility decisions</h2>
+<ul>
+<li>New desktop/workspace/extension artifacts are named Filecraft.</li>
+<li>Python <code>prepare_suite</code>, JS <code>PreparePDF</code>/<code>PrepareEngine</code>, receipt schema IDs,
+  internal worker variables and profile IDs remain stable for existing consumers.
+  They are compatibility identifiers, not current marketing names.</li>
+<li>Desktop CLI still accepts the existing command syntax.</li>
+<li>The unpublished Firefox developer extension adopts workspace@filecraft.github.io.
+  Existing temporary/unpacked installs should be removed and replaced explicitly.</li>
+<li>The small Swift image app is retained as legacy source under its established
+  bundle identity; it is not a new Filecraft desktop release or recommended surface.</li>
+<li>Native Android development and its workflow are retired. Source remains in tags
+  through v0.9.0-beta.1 and historical unsigned releases remain available. No iOS or
+  iPadOS native app was shipped; no mobile platform is claimed now.</li>
+<li>Previously distributed packages are not edited, renamed or relicensed.</li>
+</ul>
+<h2>Scope and control</h2>
+<p>The main repository owns engine, desktop, CLI, web/extension adapters and docs.
+The organization site repository owns static presentation only. Splitting each
+small shared component into a separate repository would introduce version drift
+without a demonstrated benefit.</p>
+<p>Future online assistance is a separate consent/security boundary, not a silent
+replacement for local transformations. There is no shipped fine-tuned model.</p></article></main><footer class="site-footer"><div><a class="brand" href="/">Filecraft</a><p>A copy. A check. A record.<br>No account. No document uploads.</p></div><nav aria-label="Footer"><a class="" href="/privacy/">Privacy</a><a class="" href="/cookies/">Cookies</a><a class="" href="/releases/">Releases</a><a class="" href="/security/">Security</a><a class="" href="/accessibility/">Accessibility</a><a class="" href="/licensing/">License</a><a class="" href="/community/">Community</a><a class="" href="/about/">About</a><a class="" href="/contact/">Contact</a><a class="" href="https://github.com/Filecraft/Filecraft">GitHub ↗</a><a class="" href="/terms/">Terms</a></nav><p class="fine">Current project-owned source: Apache-2.0. Dependencies retain their licenses.<br>Historical downloads through 0.8 retain Hippocratic 3.0. No license change is implied for old artifacts.</p></footer></body></html>
