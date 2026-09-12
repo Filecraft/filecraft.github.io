@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Maintainer signing guide | Filecraft</title><meta name="description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><link rel="canonical" href="https://filecraft.github.io/documentation/SIGNING.html"><meta property="og:type" content="website"><meta property="og:title" content="Maintainer signing guide | Filecraft"><meta property="og:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta property="og:url" content="https://filecraft.github.io/documentation/SIGNING.html"><meta property="og:image" content="https://filecraft.github.io/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Maintainer signing guide | Filecraft"><meta name="twitter:description" content="Technical documentation and evidence. Older versioned reports retain their original scope."><meta name="twitter:image" content="https://filecraft.github.io/assets/social-preview.png"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Filecraft", "url": "https://filecraft.github.io/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, Linux, macOS; browser workspace", "license": "https://github.com/Filecraft/Filecraft/blob/main/LICENSE"}</script><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"><script src="/site.js" defer></script></head><body class="guide-page"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Filecraft home"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M10 16 42 4 54 16 22 28Zm12 18 25-9 11 11-25 9ZM10 32l12 12v16L10 48Z"/></svg><span>filecraft</span></a><nav aria-label="Primary"><a href="/features/">What it does</a><a href="/download/">Downloads</a><a href="/documentation/">Guides</a></nav><div class="header-tools"><details class="languages"><summary aria-label="Language"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>EN<span aria-hidden="true">⌄</span></summary><div class="language-menu"><a href="/" lang="en" hreflang="en">English</a><a href="/fr/" lang="fr" hreflang="fr">Français</a><a href="/es/" lang="es" hreflang="es">Español</a></div></details><button class="theme-toggle" type="button" aria-label="Change color theme" hidden>◐</button><a class="nav-action" href="/workspace/">Try it in your browser ↗</a></div></header><main id="main" tabindex="-1"><div class="page-intro"><p class="eyebrow">Filecraft guide</p><h1>Maintainer signing guide</h1><p class="deck">Technical documentation and evidence. Older versioned reports retain their original scope.</p></div><p class="fine">Versioned reports retain historical scope and licenses. Current capabilities and license: <a href="/features/">features</a> · <a href="/licensing/">licensing</a>.</p><article class="technical"><p>Filecraft 0.10.0-beta.1 has no Windows publisher signature or macOS Developer ID
+notarization. The maintainer does not yet have signing keys configured. This is
+setup guidance for a future release, not a certification or a record of completed
+signing. Keep the current download warnings until the final artifacts are verified.</p>
+<p>The owner must handle enrollment, identity checks, billing and legal agreements.
+Do not buy a certificate or hardware token before checking eligibility and the
+chosen provider's requirements. A personal hardware token is not universally
+required: Azure Artifact Signing manages signing keys in its service HSMs.[6]</p>
+<h2>macOS: Developer ID and notarization</h2>
+<ol>
+<li>Enroll in the Apple Developer Program. The Account Holder creates a Developer ID
+   certificate through Xcode or the developer account. Use Developer ID Application
+   for app code; a flat installer package needs the appropriate installer identity.[1][2]</li>
+<li>Use a supported Xcode toolchain. Sign all distributed executables, including
+   nested code, with valid Developer ID signatures. Enable Hardened Runtime for
+   app and command-line targets and include secure timestamps.[2]</li>
+<li>Review the entitlements needed by the packaged Python runtime and its libraries.
+   Test the signed package's real GUI, CLI, rendering and optional-engine workflows.
+   Do not assume the current unsigned packager already performs these steps.</li>
+<li>Store notarization credentials in a local Keychain profile using <code>notarytool</code>.
+   Submit the signed distribution and inspect its status and log. Apple accepts
+   ZIP, DMG and flat installer packages; use <code>notarytool</code>, not retired <code>altool</code>.[3]</li>
+<li>Require an <code>Accepted</code> result, then staple the ticket to the supported app or
+   distribution container. For ZIP delivery, staple the app before creating the
+   final ZIP. Test a fresh download through Gatekeeper before publication.[1][2][3]</li>
+</ol>
+<p>Example submission after signing and local credential setup. Replace the sample
+paths and profile name with the actual staged package and Keychain profile:</p>
+<pre><code class="language-sh">xcrun notarytool submit &quot;staging/Filecraft.zip&quot; --keychain-profile &quot;filecraft-notary&quot; --wait
+xcrun notarytool log &quot;SUBMISSION_ID&quot; --keychain-profile &quot;filecraft-notary&quot; &quot;notary-log.json&quot;
+</code></pre>
+<p>For an app-bundle distribution, verify the actual bundle and its stapled ticket:</p>
+<pre><code class="language-sh">codesign --verify --deep --strict --verbose=2 &quot;staging/Filecraft.app&quot;
+xcrun stapler staple &quot;staging/Filecraft.app&quot;
+xcrun stapler validate &quot;staging/Filecraft.app&quot;
+</code></pre>
+<p>These are examples, not claims about the current package layout. A successful
+upload is not an accepted notarization. Notarization is an automated malware and
+code-signing check, not App Review or an independent security audit.[2]</p>
+<h2>Windows: Azure Artifact Signing and SignTool</h2>
+<p>Check Public Trust eligibility before paying. Microsoft's current quickstart
+limits individual developers to the United States and Canada; organizations have
+a separate country list. An Azure subscription alone does not establish
+eligibility. Private Trust is not a substitute for public distribution trust.[4]</p>
+<ol>
+<li>Create an Artifact Signing account in an eligible Azure subscription, complete
+   identity validation in the Azure portal and create a Public Trust certificate
+   profile. Confirm the legal publisher name before submitting.[4]</li>
+<li>Assign the signing identity the Artifact Signing Certificate Profile Signer
+   role. Install the official Artifact Signing Client Tools on the Windows signing
+   machine. Match the architectures of SignTool, the .NET runtime and the dlib.[5]</li>
+<li>Create <code>metadata.json</code> with <code>Endpoint</code>, <code>CodeSigningAccountName</code> and
+   <code>CertificateProfileName</code>. The endpoint must match the account's Azure region.
+   Configure one intended authentication method rather than relying on an
+   unexpected cached account.[5]</li>
+<li>Sign the staged executable before making the release ZIP. Timestamp every
+   signature: Artifact Signing certificates have a three-day validity, so the
+   timestamp matters after the signing certificate expires.[5]</li>
+</ol>
+<p>PowerShell example using the installed x64 tools and local metadata file:</p>
+<pre><code class="language-powershell">&amp; &quot;&lt;SDK-bin&gt;\x64\signtool.exe&quot; sign /v /fd SHA256 /tr &quot;http://timestamp.acs.microsoft.com&quot; /td SHA256 /dlib &quot;&lt;client-bin&gt;\x64\Azure.CodeSigning.Dlib.dll&quot; /dmdf &quot;&lt;config&gt;\metadata.json&quot; &quot;&lt;staging&gt;\Filecraft-Desktop.exe&quot;
+&amp; &quot;&lt;SDK-bin&gt;\x64\signtool.exe&quot; verify /pa /all /v &quot;&lt;staging&gt;\Filecraft-Desktop.exe&quot;
+</code></pre>
+<p>The timestamp URL above is Microsoft's documented endpoint. SignTool checks
+signature trust; it does not establish application safety or store approval.[5][7]
+Record the verified publisher and timestamp, then repeat verification on the
+executable extracted from the final downloaded ZIP. Do not promise that signing
+will remove every Windows warning.</p>
+<h2>Secrets and release records</h2>
+<ul>
+<li>Never paste private keys, certificate export passwords, app-specific passwords,
+  API keys or tokens into chat, issues, source files or build logs. Do not send
+  identity documents to an agent; submit them directly to the provider.</li>
+<li>Keep local credentials in Keychain or an approved secret store. For CI, prefer
+  short-lived federated or managed identity credentials where supported, limit
+  signer access and require approval for release signing.</li>
+<li>Keep signing jobs separate from untrusted pull-request code. Review logs before
+  sharing them; revoke or rotate exposed credentials immediately.</li>
+<li>Rebuild archives and calculate checksums after signing and stapling. Retain the
+  source revision, tool versions, signing identity, notarization result and final
+  artifact verification logs. Never replace historical release assets silently.</li>
+<li>Signing and notarization do not change Filecraft's document-processing limits,
+  dependency licenses or unsigned receipt semantics. See <a href="RELEASING.html">RELEASING.md</a>.</li>
+</ul>
+<h2>Sources</h2>
+<p>[1] https://developer.apple.com/developer-id
+[2] https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution
+[3] https://developer.apple.com/documentation/security/customizing-the-notarization-workflow
+[4] https://learn.microsoft.com/en-us/azure/artifact-signing/quickstart
+[5] https://learn.microsoft.com/en-us/azure/artifact-signing/how-to-signing-integrations
+[6] https://learn.microsoft.com/en-us/azure/artifact-signing/overview
+[7] https://learn.microsoft.com/en-us/windows/win32/seccrypto/signtool</p></article></main><footer class="site-footer"><div class="footer-top"><div><a class="brand" href="/"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M10 16 42 4 54 16 22 28Zm12 18 25-9 11 11-25 9ZM10 32l12 12v16L10 48Z"/></svg><span>filecraft</span></a><p>Made for the copy you actually need.</p></div><nav aria-label="Footer"><a href="/privacy/">Privacy</a><a href="/cookies/">Cookies</a><a href="/releases/">Release archive</a><a href="/accessibility/">Accessibility</a><a href="/licensing/">License</a><a href="/contact/">Contact</a><a href="https://github.com/Filecraft/Filecraft">GitHub ↗</a><a href="/brand/">Brand assets</a></nav></div><div class="footer-bottom"><a href="/ai-disclosure/">Built with AI assistance. Read the development disclosure.</a><p>Current original source: Apache-2.0. Older releases and dependencies keep their own licenses.</p></div></footer></body></html>

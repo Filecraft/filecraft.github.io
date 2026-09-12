@@ -6,7 +6,7 @@ Runtime budget: Mac executable <2 MB/app files <3 MB/archive <1.5 MB; Portable e
 
 Encryption is deferred until an audited implementation and license/size review exists. Near-white flattening is threshold whitening, not AI segmentation. Metadata stripping remains on; retention controls are proposed. Offline OCR/models are not bundled.
 
-Machine-readable acceptance criteria: [features.json](https://github.com/gonisulaimann/Prepare/blob/main/roadmap/features.json).
+Machine-readable acceptance criteria: [features.json](../roadmap/features.json).
 
 ## Geometry
 

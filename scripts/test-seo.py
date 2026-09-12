@@ -30,7 +30,7 @@ for f in files:
     assert p.meta['og:url']==url
     assert 50<=len(p.meta['description'])<=180,(f,len(p.meta['description']))
     assert all('alt' in a for a in p.images)
-    allowed=['site.js','platform.js','/platform.js']
+    allowed=['site.js','/site.js','platform.js','/platform.js']
     if f.parent.name=='workspace':allowed+=['document-engine.js','readiness-ui.js','worker-bundle.js','app.js']
     assert all(a.get('src') in allowed or a.get('type')=='application/ld+json' for a in p.scripts)
     if f.name=='index.html' and f.parent==ROOT:

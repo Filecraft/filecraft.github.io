@@ -1,4 +1,4 @@
-# Store submission foundations — not submissions
+# Store submission foundations; not submissions
 
 > Historical architecture/planning context. For current capabilities use the desktop, extension and workflow guides; this document is not a current platform-support promise.
 
