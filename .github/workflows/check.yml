@@ -18,3 +18,4 @@ jobs:
           python3 scripts/test-seo.py
           node scripts/test-platform.cjs
           node scripts/test-download-filter.cjs
+          node scripts/test-download-platform-vocabulary.cjs
