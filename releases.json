@@ -1,11 +1,96 @@
 [
   {
+    "tag": "v0.10.0-beta.1",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.10.0-beta.1",
+    "name": "Filecraft 0.10.0-beta.1 \u2014 local, requirement-aware preparation",
+    "published": "2026-09-12T00:09:07Z",
+    "prerelease": true,
+    "current": true,
+    "assets": [
+      {
+        "name": "Filecraft-0.10.0-beta.1-desktop-darwin-arm64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-desktop-darwin-arm64.zip",
+        "bytes": 28222355
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-desktop-darwin-arm64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-desktop-darwin-arm64.zip.sha256",
+        "bytes": 115
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-desktop-darwin-x86_64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-desktop-darwin-x86_64.zip",
+        "bytes": 29633933
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-desktop-darwin-x86_64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-desktop-darwin-x86_64.zip.sha256",
+        "bytes": 116
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-desktop-linux-x86_64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-desktop-linux-x86_64.zip",
+        "bytes": 50216624
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-desktop-linux-x86_64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-desktop-linux-x86_64.zip.sha256",
+        "bytes": 115
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-desktop-windows-amd64.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-desktop-windows-amd64.zip",
+        "bytes": 32426255
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-desktop-windows-amd64.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-desktop-windows-amd64.zip.sha256",
+        "bytes": 117
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-extension-chromium.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-extension-chromium.zip",
+        "bytes": 249338
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-extension-chromium.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-extension-chromium.zip.sha256",
+        "bytes": 113
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-extension-firefox.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-extension-firefox.zip",
+        "bytes": 249430
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-extension-firefox.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-extension-firefox.zip.sha256",
+        "bytes": 112
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-pdf-workbench.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-pdf-workbench.zip",
+        "bytes": 247187
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.1-pdf-workbench.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/Filecraft-0.10.0-beta.1-pdf-workbench.zip.sha256",
+        "bytes": 108
+      },
+      {
+        "name": "native-audit.json",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.1/native-audit.json",
+        "bytes": 33535
+      }
+    ]
+  },
+  {
     "tag": "v0.9.0-beta.1",
     "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.9.0-beta.1",
     "name": "Prepare 0.9.0-beta.1 \u2014 copies, requirements, receipts",
     "published": "2026-09-11T22:52:55Z",
     "prerelease": true,
-    "current": true,
+    "current": false,
     "assets": [
       {
         "name": "Prepare-0.9.0-beta.1-desktop-darwin-arm64.zip",
@@ -260,26 +345,6 @@
     ]
   },
   {
-    "tag": "v0.5.0-portable-preview.1",
-    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.5.0-portable-preview.1",
-    "name": "Prepare Portable 0.5.0 preview \u2014 Windows & Linux, offline",
-    "published": "2026-09-11T08:47:55Z",
-    "prerelease": true,
-    "current": false,
-    "assets": [
-      {
-        "name": "Prepare-0.5.0-portable.zip",
-        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-portable-preview.1/Prepare-0.5.0-portable.zip",
-        "bytes": 16642
-      },
-      {
-        "name": "Prepare-0.5.0-portable.zip.sha256",
-        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-portable-preview.1/Prepare-0.5.0-portable.zip.sha256",
-        "bytes": 93
-      }
-    ]
-  },
-  {
     "tag": "v0.5.0-android-experimental.1",
     "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.5.0-android-experimental.1",
     "name": "Prepare Android experimental \u2014 UNSIGNED developer APK",
@@ -306,6 +371,26 @@
         "name": "Prepare-0.5.0-android-experimental-UNSIGNED.apk.sha256",
         "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-android-experimental.1/Prepare-0.5.0-android-experimental-UNSIGNED.apk.sha256",
         "bytes": 114
+      }
+    ]
+  },
+  {
+    "tag": "v0.5.0-portable-preview.1",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.5.0-portable-preview.1",
+    "name": "Prepare Portable 0.5.0 preview \u2014 Windows & Linux, offline",
+    "published": "2026-09-11T08:47:55Z",
+    "prerelease": true,
+    "current": false,
+    "assets": [
+      {
+        "name": "Prepare-0.5.0-portable.zip",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-portable-preview.1/Prepare-0.5.0-portable.zip",
+        "bytes": 16642
+      },
+      {
+        "name": "Prepare-0.5.0-portable.zip.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.5.0-portable-preview.1/Prepare-0.5.0-portable.zip.sha256",
+        "bytes": 93
       }
     ]
   },
