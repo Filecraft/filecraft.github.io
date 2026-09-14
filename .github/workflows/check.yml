@@ -20,3 +20,4 @@ jobs:
           node scripts/test-download-filter.cjs
           node scripts/test-download-platform-vocabulary.cjs
           node scripts/test-hero-download.cjs
+          node scripts/test-arch-chooser.cjs

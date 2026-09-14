@@ -6,6 +6,17 @@ BASE='https://filecraft.github.io/'
 REPO='https://github.com/Filecraft/Filecraft'
 PRODUCT=json.loads((ROOT/'product.json').read_text())
 esc=html.escape
+def arch_key(item):
+    """The architecture a card installs on, as a key shared with the chooser."""
+    name=item['name']
+    if item['platform']!='macos':return ''
+    return 'macos-arm64' if 'arm64' in name else 'macos-x86' if 'x86_64' in name else ''
+ARCH_CHOICE=('<div class="platform-choices arch-choice" data-arch-chooser hidden role="group" aria-label="Your Mac">'
+    '<span class="fine">Your Mac:</span>'
+    '<button type="button" data-arch-choice="macos-arm64" aria-pressed="false">Apple Silicon</button>'
+    '<button type="button" data-arch-choice="macos-x86" aria-pressed="false">Intel</button>'
+    '<span class="fine">Detection cannot confirm your CPU. Both builds stay one click away.</span></div>')
+
 def download_label(name):
     suffix=name.rsplit('.',1)[-1].upper()
     return f'Download {suffix} ↓' if suffix in ('DMG','EXE','DEB','ZIP') else 'Download ↓'
@@ -65,9 +76,9 @@ add('cookies','Cookies and site data.','This site sets no application cookies an
 add('contact','Get help or report a problem.','Public bugs and feature requests belong on GitHub. Security reports have a private channel.',section('Support',f'<p>{link(REPO+"/issues/new/choose","Open an issue →","button")}</p><p>Include version, OS/browser, expected result and a small synthetic fixture. Support is handled through GitHub; response times vary. Do not include secrets or personal documents.</p>')+section('Security',f'<p>{link(REPO+"/security/advisories/new","Private vulnerability report →")}</p>'))
 
 inventory=json.loads((ROOT/'downloads.json').read_text())
-downloads='<p id="platform-note" role="status">Choose your platform. Every download remains available without JavaScript.</p><div class="platform-choices">'+''.join(f'<button type="button" data-platform="{p}" aria-pressed="false">{label}</button>' for p,label in [('all','All'),('macos','macOS'),('windows','Windows'),('linux','Linux'),('browser','Browser'),('legacy','Archive')])+'</div><div class="download-list">'
+downloads='<p id="platform-note" role="status">Choose your platform. Every download remains available without JavaScript.</p><div class="platform-choices">'+''.join(f'<button type="button" data-platform="{p}" aria-pressed="false">{label}</button>' for p,label in [('all','All'),('macos','macOS'),('windows','Windows'),('linux','Linux'),('browser','Browser'),('legacy','Archive')])+'</div>'+ARCH_CHOICE+'<div class="download-list">'
 for item in inventory:
-    downloads+=f'<article data-download="{esc(item["platform"])}"><div><p class="eyebrow">{esc(item["channel"])} / {esc(item["version"])}</p><h2>{esc(item["label"])}</h2><p>{esc(item["notes"])}</p><p class="fine">{esc(item["architecture"])} · {item["bytes"]:,} bytes · {esc(item["license"])}</p></div><div><a class="button" href="{esc(item["url"])}">{download_label(item["name"])}</a><details><summary>SHA-256 checksum</summary><code class="checksum">{esc(item["sha256"])}</code></details></div></article>'
+    downloads+=f'<article data-download="{esc(item["platform"])}" data-architecture="{arch_key(item)}"><div><p class="eyebrow">{esc(item["channel"])} / {esc(item["version"])}</p><h2>{esc(item["label"])}</h2><p>{esc(item["notes"])}</p><p class="fine">{esc(item["architecture"])} · {item["bytes"]:,} bytes · {esc(item["license"])}</p></div><div><a class="button" href="{esc(item["url"])}">{download_label(item["name"])}</a><details><summary>SHA-256 checksum</summary><code class="checksum">{esc(item["sha256"])}</code></details></div></article>'
 downloads+='</div><script src="/platform.js" defer></script>'
 downloads+=section('Before opening','<p>Verify the checksum first, then follow the install steps for your platform: open the DMG and drag Filecraft to Applications, run the Windows setup, or install the Ubuntu package with <code>sudo apt install</code>. Portable archives must be extracted whole. Desktop binaries are unsigned/not notarized. Do not bypass operating-system protections. Browser extensions are developer-mode/temporary-install previews, not store-published products. Older downloads carry historical licenses and narrower capabilities.</p><p><a href="/requirements/">Requirements</a> · <a href="/extension/">Extension installation</a> · <a href="/mobile/">Android status</a></p>')
 add('download','Download Filecraft.','Choose your computer or download the offline browser workspace.',downloads)
