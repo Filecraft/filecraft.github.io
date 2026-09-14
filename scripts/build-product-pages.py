@@ -6,6 +6,9 @@ BASE='https://filecraft.github.io/'
 REPO='https://github.com/Filecraft/Filecraft'
 PRODUCT=json.loads((ROOT/'product.json').read_text())
 esc=html.escape
+def download_label(name):
+    suffix=name.rsplit('.',1)[-1].upper()
+    return f'Download {suffix} ↓' if suffix in ('DMG','EXE','DEB','ZIP') else 'Download ↓'
 
 def link(href,label,cls=''):
     return f'<a class="{cls}" href="{href}">{label}</a>'
@@ -64,9 +67,9 @@ add('contact','Get help or report a problem.','Public bugs and feature requests 
 inventory=json.loads((ROOT/'downloads.json').read_text())
 downloads='<p id="platform-note" role="status">Choose your platform. Every download remains available without JavaScript.</p><div class="platform-choices">'+''.join(f'<button type="button" data-platform="{p}" aria-pressed="false">{label}</button>' for p,label in [('all','All'),('macos','macOS'),('windows','Windows'),('linux','Linux'),('browser','Browser'),('legacy','Archive')])+'</div><div class="download-list">'
 for item in inventory:
-    downloads+=f'<article data-download="{esc(item["platform"])}"><div><p class="eyebrow">{esc(item["channel"])} / {esc(item["version"])}</p><h2>{esc(item["label"])}</h2><p>{esc(item["notes"])}</p><p class="fine">{esc(item["architecture"])} · {item["bytes"]:,} bytes · {esc(item["license"])}</p></div><div><a class="button" href="{esc(item["url"])}">Download ZIP ↓</a><details><summary>SHA-256 checksum</summary><code class="checksum">{esc(item["sha256"])}</code></details></div></article>'
+    downloads+=f'<article data-download="{esc(item["platform"])}"><div><p class="eyebrow">{esc(item["channel"])} / {esc(item["version"])}</p><h2>{esc(item["label"])}</h2><p>{esc(item["notes"])}</p><p class="fine">{esc(item["architecture"])} · {item["bytes"]:,} bytes · {esc(item["license"])}</p></div><div><a class="button" href="{esc(item["url"])}">{download_label(item["name"])}</a><details><summary>SHA-256 checksum</summary><code class="checksum">{esc(item["sha256"])}</code></details></div></article>'
 downloads+='</div><script src="/platform.js" defer></script>'
-downloads+=section('Before opening','<p>Verify the checksum, extract the entire package and read its README. Desktop binaries are unsigned/not notarized. Do not bypass operating-system protections. Browser extensions are developer-mode/temporary-install previews, not store-published products. Older downloads carry historical licenses and narrower capabilities.</p><p><a href="/requirements/">Requirements</a> · <a href="/extension/">Extension installation</a> · <a href="/mobile/">Android status</a></p>')
+downloads+=section('Before opening','<p>Verify the checksum first, then follow the install steps for your platform: open the DMG and drag Filecraft to Applications, run the Windows setup, or install the Ubuntu package with <code>sudo apt install</code>. Portable archives must be extracted whole. Desktop binaries are unsigned/not notarized. Do not bypass operating-system protections. Browser extensions are developer-mode/temporary-install previews, not store-published products. Older downloads carry historical licenses and narrower capabilities.</p><p><a href="/requirements/">Requirements</a> · <a href="/extension/">Extension installation</a> · <a href="/mobile/">Android status</a></p>')
 add('download','Download Filecraft.','Choose your computer or download the offline browser workspace.',downloads)
 add('brand','Made from a simple fold.','The Filecraft mark is three cut-paper shapes. Use the originals below.', '<div class="brand-sheet"><div class="brand-swatch"><img src="/assets/filecraft-mark.svg" alt="Filecraft orange folded-paper mark on light"></div><div class="brand-swatch dark"><img src="/assets/filecraft-mark.svg" alt="Filecraft orange folded-paper mark on dark"></div></div>'+section('Download the originals','<p><a href="/assets/filecraft-mark.svg" download>SVG mark</a> · <a href="/assets/filecraft-avatar.png" download>Square PNG</a> · <a href="/assets/filecraft-banner.svg" download>Repository banner</a></p><p>Keep the three shapes together. Leave clear space around the mark. Do not stretch, outline or add effects. These assets identify Filecraft; using them does not imply endorsement.</p>'))
 for slug,(title,deck,body) in pages.items():

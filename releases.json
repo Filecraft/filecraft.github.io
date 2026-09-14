@@ -1,11 +1,66 @@
 [
   {
+    "tag": "v0.10.0-beta.2",
+    "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.10.0-beta.2",
+    "name": "Filecraft 0.10.0-beta.2 \u2014 qualified native consumer installers",
+    "published": "2026-09-14T12:47:51Z",
+    "prerelease": true,
+    "current": true,
+    "assets": [
+      {
+        "name": "Filecraft-0.10.0-beta.2-macos-arm64.dmg",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.2/Filecraft-0.10.0-beta.2-macos-arm64.dmg",
+        "bytes": 30216361
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.2-macos-arm64.dmg.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.2/Filecraft-0.10.0-beta.2-macos-arm64.dmg.sha256",
+        "bytes": 106
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.2-macos-x86_64.dmg",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.2/Filecraft-0.10.0-beta.2-macos-x86_64.dmg",
+        "bytes": 31705887
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.2-macos-x86_64.dmg.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.2/Filecraft-0.10.0-beta.2-macos-x86_64.dmg.sha256",
+        "bytes": 107
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.2-windows-x64-setup.exe",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.2/Filecraft-0.10.0-beta.2-windows-x64-setup.exe",
+        "bytes": 25034244
+      },
+      {
+        "name": "Filecraft-0.10.0-beta.2-windows-x64-setup.exe.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.2/Filecraft-0.10.0-beta.2-windows-x64-setup.exe.sha256",
+        "bytes": 112
+      },
+      {
+        "name": "filecraft_0.10.0.beta.2-1_ubuntu24.04_amd64.deb",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.2/filecraft_0.10.0.beta.2-1_ubuntu24.04_amd64.deb",
+        "bytes": 37241960
+      },
+      {
+        "name": "filecraft_0.10.0.beta.2-1_ubuntu24.04_amd64.deb.sha256",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.2/filecraft_0.10.0.beta.2-1_ubuntu24.04_amd64.deb.sha256",
+        "bytes": 114
+      },
+      {
+        "name": "release-manifest.json",
+        "url": "https://github.com/Filecraft/Filecraft/releases/download/v0.10.0-beta.2/release-manifest.json",
+        "bytes": 4767
+      }
+    ]
+  },
+  {
     "tag": "v0.10.0-beta.1",
     "url": "https://github.com/Filecraft/Filecraft/releases/tag/v0.10.0-beta.1",
     "name": "Filecraft 0.10.0-beta.1 \u2014 local, requirement-aware preparation",
     "published": "2026-09-12T00:09:07Z",
     "prerelease": true,
-    "current": true,
+    "current": false,
     "assets": [
       {
         "name": "Filecraft-0.10.0-beta.1-desktop-darwin-arm64.zip",
