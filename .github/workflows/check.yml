@@ -19,3 +19,4 @@ jobs:
           node scripts/test-platform.cjs
           node scripts/test-download-filter.cjs
           node scripts/test-download-platform-vocabulary.cjs
+          node scripts/test-hero-download.cjs
